@@ -1,4 +1,5 @@
 en:
+  region: Northumberland
   circuit:
     name:
       white_for_kids: White (kids)
@@ -46,7 +47,7 @@ en:
   views:
     homepage:
       title1: Bouldering
-      title2: in Fontainebleau
+      title2: in Northumberland
       subtitle: Discover thousands of problems & circuits for all levels.
       see_map: See the map
       read_guide: Read the beginner's guide
