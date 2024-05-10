@@ -65,7 +65,7 @@ Rails.application.configure do
   # email
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "www.boolder.com", protocol: "https" }
+  config.action_mailer.default_url_options = { host: "radiant-plains-95233-f2711df13413.herokuapp.com", protocol: "https" }
   ActionMailer::Base.smtp_settings = {
     :address => 'email-smtp.eu-north-1.amazonaws.com',
     :port => '587',
@@ -74,6 +74,8 @@ Rails.application.configure do
     :password => Rails.application.credentials.dig(:amazon_smtp, :password),
   }
   config.action_mailer.perform_caching = false
+
+  config.active_storage.default_url_options = { host: "radiant-plains-95233-f2711df13413.herokuapp.com", protocol: "https" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

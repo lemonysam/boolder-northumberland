@@ -108,7 +108,7 @@ Rails.application.routes.draw do
   # inspired by https://edgeguides.rubyonrails.org/active_storage_overview.html#putting-a-cdn-in-front-of-active-storage
   direct :cdn_image do |model, options|
     expires_in = options.delete(:expires_in) { ActiveStorage.urls_expire_in }
-    options = options.merge(host: Rails.application.config.asset_host) unless Rails.env.local?
+    # options = options.merge(host: Rails.application.config.asset_host) unless Rails.env.local?
 
     if model.respond_to?(:signed_id)
       route_for(
