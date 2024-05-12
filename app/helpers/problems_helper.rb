@@ -30,9 +30,9 @@ module ProblemsHelper
       when 2
         "#FF9500"
       when 3
-        "#FF3B2F"
-      when 4
         "#017AFF"
+      when 4
+        "#FF3B2F"
       when 5
         "#000000"
       else
