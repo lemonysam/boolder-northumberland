@@ -54,10 +54,6 @@ en:
       popular_areas: Popular areas
       all_areas: See all areas
       promoted:
-        circuit7a:
-          title: Fond of Font
-          subtitle: Discover the impossible circuit of 100 7a by Seb Berthe and Hugo Parmentier
-          cta: See the circuit
         app:
           title: Discover the Boolder app
           subtitle: The best way to enjoy bouldering in Northumberland, available on iPhone and Android.
@@ -316,14 +312,6 @@ en:
       index:
         metas:
           title: All Northumberland circuits
-    circuit7a:
-      title: Fond of Font
-      subtitle_html: The impossible circuit of 100 7a by Seb Berthe and Hugo Parmentier in 2023.
-      see_on_map: See on map
-      see_movie: See the movie
-      metas:
-        title: Fond of Font - 100 7a circuit
-        description: The impossible circuit of 100 7a in Northumberland by Seb Berthe and Hugo Parmentier.
     problems:
       show:
         see_circuit: See the circuit
