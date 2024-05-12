@@ -16,7 +16,7 @@ div class="mb-3 md:grid md:grid-cols-6 md:gap-6"
       /   span class="text-red-400 mr-1"
       /     = render 'svg/heart', width: 24, height: 24
       div class="flex items-center"
-        span class="mr-2"= problem_circle_view(@problem)
+        span class="mr-2"= problem_circle_view(@problem, circuit_color: false)
         h1 class="text-2xl font-bold"= @problem.name_with_fallback
         span class="ml-2 text-gray-400 text-2xl font-bold"= @problem.grade
     div class="my-1"

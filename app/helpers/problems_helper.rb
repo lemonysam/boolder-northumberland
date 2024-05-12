@@ -1,7 +1,7 @@
 module ProblemsHelper
-  def problem_circle_view(problem)
+  def problem_circle_view(problem, circuit_color: false)
     circle_view(problem.circuit_number_simplified || "&nbsp;".html_safe, 
-      background_color: uicolor(problem.circuit&.color), 
+      background_color: circuit_color ? uicolor(problem.circuit&.color) : grade_band_color(problem.grade_band), 
       text_color: text_color(problem.circuit&.color)
     )
   end
@@ -21,6 +21,23 @@ module ProblemsHelper
 
   def uicolor(circuit_color, fallback: "rgb(80% 80% 80%)")
     color_mapping[circuit_color] || fallback
+  end
+
+  def grade_band_color(grade_band, fallback: "rgb(80% 80% 80%)")
+    case grade_band
+      when 1
+        "#FFCC02"
+      when 2
+        "#FF9500"
+      when 3
+        "#FF3B2F"
+      when 4
+        "#017AFF"
+      when 5
+        "#000000"
+      else
+        fallback
+    end
   end
 
   def bleau_info_url(problem)
@@ -43,20 +60,20 @@ module ProblemsHelper
   # and in search_controller.js
   # https://github.com/nmondollot/boolder/blob/d42b1bc91802895e19219bb662c1ffc8fd831d76/app/javascript/controllers/search_controller.js
   def color_mapping
-     {
-      yellow:   "#FFCC02",
-      purple:   "#D783FF",
-      orange:   "#FF9500",
-      green:    "#77C344",
-      blue:     "#017AFF",
-      skyblue:  "#5AC7FA",
-      salmon:   "#FDAF8A",
-      red:      "#FF3B2F",
-      black:    "#000000",
-      white:    "#FFFFFF",
-    }.with_indifferent_access
+    {
+     yellow:   "#FFCC02",
+     purple:   "#D783FF",
+     orange:   "#FF9500",
+     green:    "#77C344",
+     blue:     "#017AFF",
+     skyblue:  "#5AC7FA",
+     salmon:   "#FDAF8A",
+     red:      "#FF3B2F",
+     black:    "#000000",
+     white:    "#FFFFFF",
+   }.with_indifferent_access
   end
-
+ 
   def text_color(circuit_color)
     if circuit_color.to_s == "white"
       "#333"
