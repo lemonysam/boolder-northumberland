@@ -116,7 +116,7 @@ namespace :mapbox do
 
     geo_json = RGeo::GeoJSON.encode(feature_collection)
 
-    File.open(Rails.root.join("..", "boolder-maps", "mapbox", "circuits.geojson"),"w") do |f|
+    File.open(Rails.root.join("tmp", "boolder-maps", "mapbox", "circuits.geojson"),"w") do |f|
       f.write(JSON.pretty_generate(geo_json))
     end
 
