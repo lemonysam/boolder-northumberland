@@ -42,7 +42,7 @@ namespace :mapbox do
 
     geo_json = JSON.pretty_generate(RGeo::GeoJSON.encode(feature_collection))
 
-    file_name = Rails.root.join("..", "boolder-maps", "mapbox", "areas.geojson")
+    file_name = Rails.root.join("tmp", "boolder-maps", "mapbox", "areas.geojson")
 
     File.open(file_name,"w") do |f|
       f.write(geo_json)
