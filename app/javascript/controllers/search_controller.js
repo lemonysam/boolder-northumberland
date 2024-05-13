@@ -68,75 +68,75 @@ export default class extends Controller {
         
         return debounced([
 
-          // {
-          //   sourceId: 'areas',
-          //   getItems() {
-          //     return getAlgoliaResults({
-          //       searchClient,
-          //       queries: [
-          //         {
-          //           indexName: 'Area',
-          //           query,
-          //           params: {
-          //             hitsPerPage: 10,
-          //             highlightPreTag: '<strong>',
-          //             highlightPostTag: '</strong>',
-          //           },
-          //         },
-          //       ],
-          //     });
-          //   },
+          {
+            sourceId: 'areas',
+            getItems() {
+              return getAlgoliaResults({
+                searchClient,
+                queries: [
+                  {
+                    indexName: 'Area',
+                    query,
+                    params: {
+                      hitsPerPage: 10,
+                      highlightPreTag: '<strong>',
+                      highlightPostTag: '</strong>',
+                    },
+                  },
+                ],
+              });
+            },
 
-          //   templates: {
-          //     item({ item, createElement }) {
-          //       return createElement('div', {
-          //         dangerouslySetInnerHTML: {
-          //           __html: `<span class="">
-          //           ${item._highlightResult.name.value}
-          //           </span>`,
-          //         },
-          //       });
-          //     },
-          //     // footer({ items, createElement }) {
-          //     //   if (items.length === 0) {
-          //     //     return null;
-          //     //   }
-          //     //   return createElement('div', {
-          //     //     dangerouslySetInnerHTML: {
-          //     //       __html: `<div class="">
-          //     //         <div class="flex items-center my-1" aria-hidden="true">
-          //     //           <div class="w-full border-t border-emerald-600"></div>
-          //     //         </div>
-          //     //       </div>`,
-          //     //     },
-          //     //   });
-          //     // },
-          //   },
+            templates: {
+              item({ item, createElement }) {
+                return createElement('div', {
+                  dangerouslySetInnerHTML: {
+                    __html: `<span class="">
+                    ${item._highlightResult.name.value}
+                    </span>`,
+                  },
+                });
+              },
+              // footer({ items, createElement }) {
+              //   if (items.length === 0) {
+              //     return null;
+              //   }
+              //   return createElement('div', {
+              //     dangerouslySetInnerHTML: {
+              //       __html: `<div class="">
+              //         <div class="flex items-center my-1" aria-hidden="true">
+              //           <div class="w-full border-t border-emerald-600"></div>
+              //         </div>
+              //       </div>`,
+              //     },
+              //   });
+              // },
+            },
 
-          //   getItemUrl({ item }) {
-          //     return `/${locale}/redirects/new?area_id=${item.objectID}`
-          //   },
+            getItemUrl({ item }) {
+              return `/${locale}/redirects/new?area_id=${item.objectID}`
+            },
 
-          //   onSelect({ item }) {
+            onSelect({ item }) {
 
-          //     const event = new CustomEvent("gotoarea", 
-          //       { 
-          //         detail: { 
-          //           id: item.objectID, 
-          //           name: item.name, 
-          //           south_west_lat: item.bounds.south_west.lat,
-          //           south_west_lon: item.bounds.south_west.lng,
-          //           north_east_lat:  item.bounds.north_east.lat,
-          //           north_east_lon:  item.bounds.north_east.lng,
-          //         } 
-          //       }
-          //     );
-          //     window.dispatchEvent(event);
+              const event = new CustomEvent("gotoarea", 
+                { 
+                  detail: { 
+                    id: item.objectID, 
+                    name: item.name, 
+                    south_west_lat: item.bounds.south_west.lat,
+                    south_west_lon: item.bounds.south_west.lng,
+                    north_east_lat:  item.bounds.north_east.lat,
+                    north_east_lon:  item.bounds.north_east.lng,
+                  } 
+                }
+              );
+              window.dispatchEvent(event);
 
-          //     that.autocomplete.setIsOpen(false)
-          //   },
+              that.autocomplete.setIsOpen(false)
+            },
 
-          // },
+          },
 
 
           {
