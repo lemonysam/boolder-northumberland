@@ -50,15 +50,17 @@ namespace :mapbox do
       f.write(geo_json)
     end
     
-    if Rails.env.production?
-      s3_credentials = Rails.application.credentials.dig(:aws)
+    # if Rails.env.production?
       Aws.config.update(
         region: 'eu-west-1',
-        credentials: Aws::Credentials.new(s3_credentials[:access_key_id], s3_credentials[:secret_access_key])
+        credentials: Aws::Credentials.new(
+          Rails.application.credentials.dig(:aws, :access_key_id),
+          Rails.application.credentials.dig(:aws, :secret_access_key)
+        )
       )
       s3 = Aws::S3::Client.new
       s3.put_object(body: open(file_name), bucket: "boolder-northumberland-reports", key: "areas.geojson")
-    end
+    # end
 
     puts "exported areas.geojson".green
   end
