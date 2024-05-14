@@ -80,7 +80,7 @@ export default class extends Controller {
   addLayers() {
     this.map.addSource('problems', {
       type: 'vector',
-      url: 'mapbox://samcartwright.cuw61ph8',
+      url: 'mapbox://samcartwright.1kpiy4fr',
       promoteId: "id"
     });
 
@@ -88,7 +88,7 @@ export default class extends Controller {
       'id': 'problems',
       'type': 'circle',
       'source': 'problems',
-      'source-layer': 'problems-2oh023',
+      'source-layer': 'exported_problems_1-4lxvn3',
       'minzoom': 15,
       'layout': {
         'visibility': 'visible',
@@ -232,7 +232,7 @@ export default class extends Controller {
       'id': 'problems-texts',
       'type': 'symbol',
       'source': 'problems',
-      'source-layer': 'problems-2oh023',
+      'source-layer': 'exported_problems_1-4lxvn3',
       'minzoom': 19,
       'layout': {
         'visibility': 'visible',
