@@ -52,6 +52,11 @@ export default class extends Controller {
 
     // FIXME: make this DRY (see Problem::GRADE_VALUES)
     this.allGrades = ["1a","1a+","1b","1b+","1c","1c+","2a","2a+","2b","2b+","2c","2c+","3a","3a+","3b","3b+","3c","3c+","4a","4a+","4b","4b+","4c","4c+","5a","5a+","5b","5b+","5c","5c+","6a","6a+","6b","6b+","6c","6c+","7a","7a+","7b","7b+","7c","7c+","8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+",]
+    this.yellowGrades = ["1a","1a+","1b","1b+","1c","1c+","2a","2a+","2b","2b+","2c","2c+","3a","3a+","3b","3b+","3c","3c+","4a","4a+","4b","4b+","4c","4c+"]
+    this.orangeGrades = ["5a","5a+","5b","5b+","5c","5c+",]
+    this.blueGrades = ["6a","6a+","6b","6b+","6c","6c+",]
+    this.redGrades = ["7a","7a+","7b","7b+","7c","7c+",]
+    this.blackGrades = ["8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+",]
   }
 
   addControls() {
@@ -124,84 +129,44 @@ export default class extends Controller {
             "case",
             [
               "match",
-              ["get", "circuitColor"],
-              ["", "yellow"],
+              ["get", "grade"],
+              this.yellowGrades,
               true,
               false
             ],
             "#FFCC02",
             [
               "match",
-              ["get", "circuitColor"],
-              ["", "purple"],
-              true,
-              false
-            ],
-            "#D783FF",
-            [
-              "match",
-              ["get", "circuitColor"],
-              ["", "orange"],
+              ["get", "grade"],
+              this.orangeGrades,
               true,
               false
             ],
             "#FF9500",
             [
               "match",
-              ["get", "circuitColor"],
-              ["", "green"],
-              true,
-              false
-            ],
-            "#77C344",
-            [
-              "match",
-              ["get", "circuitColor"],
-              ["", "blue"],
+              ["get", "grade"],
+              this.blueGrades,
               true,
               false
             ],
             "#017AFF",
             [
               "match",
-              ["get", "circuitColor"],
-              ["", "skyblue"],
-              true,
-              false
-            ],
-            "#5AC7FA",
-            [
-              "match",
-              ["get", "circuitColor"],
-              ["", "salmon"],
-              true,
-              false
-            ],
-            "#FDAF8A",
-            [
-              "match",
-              ["get", "circuitColor"],
-              ["", "red"],
+              ["get", "grade"],
+              this.redGrades,
               true,
               false
             ],
             "#FF3B2F",
             [
               "match",
-              ["get", "circuitColor"],
-              ["", "black"],
+              ["get", "grade"],
+              this.blackGrades,
               true,
               false
             ],
             "#000",
-            [
-              "match",
-              ["get", "circuitColor"],
-              ["", "white"],
-              true,
-              false
-            ],
-            "#FFFFFF",
             "#878A8D"
           ]
         ,
@@ -228,53 +193,53 @@ export default class extends Controller {
     "areas" // layer will be inserted just before this layer
     );
 
-    this.map.addLayer({
-      'id': 'problems-texts',
-      'type': 'symbol',
-      'source': 'problems',
-      'source-layer': 'exported_problems_1-4lxvn3',
-      'minzoom': 19,
-      'layout': {
-        'visibility': 'visible',
-        'text-allow-overlap': true,
-        'text-field': [
-          "to-string",
-          ["get", "circuitNumber"]
-        ],
-        'text-size': [
-          "interpolate",
-          ["linear"],
-          ["zoom"],
-          19,
-          10,
-          22,
-          20
-        ],
-      },
-      'paint': {
-        'text-color': 
-          [
-            "case",
-            [
-              "match",
-              ["get", "circuitColor"],
-              ["", "white"],
-              true,
-              false
-            ],
-            "#333",
-            "#fff",
-          ]
-        ,
-      },
-      filter: [
-        "match",
-          ["geometry-type"],
-          ["Point"],
-          true,
-          false
-      ],
-    });
+    // this.map.addLayer({
+    //   'id': 'problems-texts',
+    //   'type': 'symbol',
+    //   'source': 'problems',
+    //   'source-layer': 'exported_problems_1-4lxvn3',
+    //   'minzoom': 19,
+    //   'layout': {
+    //     'visibility': 'visible',
+    //     'text-allow-overlap': true,
+    //     'text-field': [
+    //       "to-string",
+    //       ["get", "circuitNumber"]
+    //     ],
+    //     'text-size': [
+    //       "interpolate",
+    //       ["linear"],
+    //       ["zoom"],
+    //       19,
+    //       10,
+    //       22,
+    //       20
+    //     ],
+    //   },
+    //   'paint': {
+    //     'text-color': 
+    //       [
+    //         "case",
+    //         [
+    //           "match",
+    //           ["get", "circuitColor"],
+    //           ["", "white"],
+    //           true,
+    //           false
+    //         ],
+    //         "#333",
+    //         "#fff",
+    //       ]
+    //     ,
+    //   },
+    //   filter: [
+    //     "match",
+    //       ["geometry-type"],
+    //       ["Point"],
+    //       true,
+    //       false
+    //   ],
+    // });
 
     // CONTRIBUTE LAYERS
 

@@ -185,7 +185,6 @@ class Problem < ApplicationRecord
       when *%w(5a 5a+ 5b 5b+ 5c 5c+)
         2
       when *%w( 6a 6a+ 6b 6b+ 6c 6c+ )
-        puts 'here'
         3
       when *%w(  7a 7a+ 7b 7b+ 7c 7c+ )
         4
