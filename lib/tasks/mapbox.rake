@@ -1,4 +1,5 @@
 require 'rgeo/geo_json'
+require 'aws/s3'
 
 namespace :mapbox do
   task areas: :environment do
@@ -42,10 +43,19 @@ namespace :mapbox do
 
     geo_json = JSON.pretty_generate(RGeo::GeoJSON.encode(feature_collection))
 
-    file_name = Rails.root.join("tmp", "boolder-maps", "mapbox", "areas.geojson")
+    file_name = Rails.root.join("tmp", "areas.geojson")
 
     File.open(file_name,"w") do |f|
       f.write(geo_json)
+    end
+    
+    if Rails.env.production?
+      s3_credentials = Rails.application.credentials.dig(:aws)
+      AWS::S3::Base.establish_connection!(
+        access_key_id: s3_credentials[:access_key_id], 
+        secret_access_key:s3_credentials[:secret_access_key]
+      )
+      S3Object.store("areas.geojson", open(file_name), "boolder-northumberland-reports")
     end
 
     puts "exported areas.geojson".green
