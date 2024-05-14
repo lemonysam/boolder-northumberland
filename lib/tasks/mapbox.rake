@@ -53,6 +53,7 @@ namespace :mapbox do
     if Rails.env.production?
       s3_credentials = Rails.application.credentials.dig(:aws)
       Aws.config.update(
+        region: 'eu-west-1',
         credentials: Aws::Credentials.new(s3_credentials[:access_key_id], s3_credentials[:secret_access_key])
       )
       s3 = Aws::S3::Client.new
