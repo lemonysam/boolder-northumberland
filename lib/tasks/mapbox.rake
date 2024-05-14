@@ -1,5 +1,6 @@
 require 'rgeo/geo_json'
-require 'aws/s3'
+require 'aws-sdk-s3'
+require 'aws-sdk-core'
 
 namespace :mapbox do
   task areas: :environment do
@@ -51,11 +52,11 @@ namespace :mapbox do
     
     if Rails.env.production?
       s3_credentials = Rails.application.credentials.dig(:aws)
-      AWS::S3::Base.establish_connection!(
-        access_key_id: s3_credentials[:access_key_id], 
-        secret_access_key:s3_credentials[:secret_access_key]
+      Aws.config.update(
+        credentials: Aws::Credentials.new(s3_credentials[:access_key_id], s3_credentials[:secret_access_key])
       )
-      S3Object.store("areas.geojson", open(file_name), "boolder-northumberland-reports")
+      s3 = Aws::S3::Client.new
+      s3.put_object(body: open(file_name), bucket: "boolder-northumberland-reports", key: "areas.geojson")
     end
 
     puts "exported areas.geojson".green
