@@ -24,6 +24,7 @@ fr:
     level_x: Niveau %{level} 
     see_on_bleau_info: Voir sur bleau.info
     see_on_map: Voir sur la carte
+    see_in_admin: Voir dans l'admin
     steepness:
       wall: Mur
       slab: Dalle
