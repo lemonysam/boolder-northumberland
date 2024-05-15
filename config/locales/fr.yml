@@ -1,4 +1,5 @@
 fr:
+  region: Northumberland
   circuit:
     name:
       white_for_kids: Blanc (enfant)
@@ -53,10 +54,6 @@ fr:
       popular_areas: Secteurs populaires
       all_areas: Voir tous les secteurs
       promoted:
-        circuit7a:
-          title: Bleau dans la Peau
-          subtitle: Découvrez l'impossible circuit des 100 7a réalisé par Seb Berthe et Hugo Parmentier.
-          cta: Voir le circuit
         app:
           title: Découvrez l'appli Boolder
           subtitle: Le compagnon idéal pour vos sorties à Fontainebleau, disponible sur iPhone et Android.
@@ -315,14 +312,6 @@ fr:
       index:
         metas:
           title: Tous les circuits à Fontainebleau
-    circuit7a:
-      title: Bleau dans la Peau
-      subtitle_html: L'impossible circuit des 100 7a par Seb Berthe et Hugo Parmentier en 2023.
-      see_on_map: Voir sur la carte
-      see_movie: Voir le film
-      metas:
-        title: Bleau dans la Peau - Circuit 100 7a
-        description: L'impossible circuit des 100 7a à Fontainebleau réalisé par Seb Berthe et Hugo Parmentier en 2023.
     problems:
       show:
         see_circuit: Voir le circuit

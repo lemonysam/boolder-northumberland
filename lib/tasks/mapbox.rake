@@ -1,4 +1,6 @@
 require 'rgeo/geo_json'
+require 'aws-sdk-s3'
+require 'aws-sdk-core'
 
 namespace :mapbox do
   task areas: :environment do
@@ -42,10 +44,22 @@ namespace :mapbox do
 
     geo_json = JSON.pretty_generate(RGeo::GeoJSON.encode(feature_collection))
 
-    file_name = Rails.root.join("..", "boolder-maps", "mapbox", "areas.geojson")
+    file_name = Rails.root.join("tmp", "areas.geojson")
 
     File.open(file_name,"w") do |f|
       f.write(geo_json)
+    end
+    
+    if Rails.env.production?
+      Aws.config.update(
+        region: 'eu-west-1',
+        credentials: Aws::Credentials.new(
+          Rails.application.credentials.dig(:aws, :access_key_id),
+          Rails.application.credentials.dig(:aws, :secret_access_key)
+        )
+      )
+      s3 = Aws::S3::Client.new
+      s3.put_object(body: open(file_name), bucket: "boolder-northumberland-reports", key: "areas.geojson")
     end
 
     puts "exported areas.geojson".green
@@ -93,9 +107,21 @@ namespace :mapbox do
     )
 
     geo_json = RGeo::GeoJSON.encode(feature_collection)
-
-    File.open(Rails.root.join("..", "boolder-maps", "mapbox", "problems#{"-without-boulders" if !include_boulders}.geojson"),"w") do |f|
+    file_name = Rails.root.join("tmp", "problems#{"-without-boulders" if !include_boulders}.geojson")
+    File.open(file_name, "w") do |f|
       f.write(JSON.pretty_generate(geo_json))
+    end
+
+    if Rails.env.production?
+      Aws.config.update(
+        region: 'eu-west-1',
+        credentials: Aws::Credentials.new(
+          Rails.application.credentials.dig(:aws, :access_key_id),
+          Rails.application.credentials.dig(:aws, :secret_access_key)
+        )
+      )
+      s3 = Aws::S3::Client.new
+      s3.put_object(body: open(file_name), bucket: "boolder-northumberland-reports", key: "exported problems.geojson")
     end
 
     puts "exported problems.geojson".green
@@ -116,7 +142,7 @@ namespace :mapbox do
 
     geo_json = RGeo::GeoJSON.encode(feature_collection)
 
-    File.open(Rails.root.join("..", "boolder-maps", "mapbox", "circuits.geojson"),"w") do |f|
+    File.open(Rails.root.join("tmp", "boolder-maps", "mapbox", "circuits.geojson"),"w") do |f|
       f.write(JSON.pretty_generate(geo_json))
     end
 

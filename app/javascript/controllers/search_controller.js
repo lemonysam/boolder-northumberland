@@ -43,8 +43,8 @@ export default class extends Controller {
     let showUnpublished = this.showUnpublishedValue
 
     const searchClient = algoliasearch(
-      'XNJHVMTGMF',
-      '765db6917d5c17449984f7c0067ae04c'
+      'IT6VX0XC8G',
+      '8b958a3c9a7df9272824382f1411c46f'
     );
 
     let that = this // FIXME: please help me I don't know what I'm doing
@@ -105,7 +105,7 @@ export default class extends Controller {
               //     dangerouslySetInnerHTML: {
               //       __html: `<div class="">
               //         <div class="flex items-center my-1" aria-hidden="true">
-              //           <div class="w-full border-t border-emerald-600"></div>
+              //           <div class="w-full border-t border-indigo-600"></div>
               //         </div>
               //       </div>`,
               //     },
@@ -212,7 +212,7 @@ export default class extends Controller {
               //   }
               //   return createElement('div', {
               //     dangerouslySetInnerHTML: {
-              //       __html: `<span class="text-emerald-600">
+              //       __html: `<span class="text-indigo-600">
               //       Voies
               //       </span>`,
               //     },

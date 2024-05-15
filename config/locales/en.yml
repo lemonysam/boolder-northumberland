@@ -1,4 +1,5 @@
 en:
+  region: Northumberland
   circuit:
     name:
       white_for_kids: White (kids)
@@ -46,20 +47,16 @@ en:
   views:
     homepage:
       title1: Bouldering
-      title2: in Fontainebleau
+      title2: in Northumberland
       subtitle: Discover thousands of problems & circuits for all levels.
       see_map: See the map
       read_guide: Read the beginner's guide
       popular_areas: Popular areas
       all_areas: See all areas
       promoted:
-        circuit7a:
-          title: Fond of Font
-          subtitle: Discover the impossible circuit of 100 7a by Seb Berthe and Hugo Parmentier
-          cta: See the circuit
         app:
           title: Discover the Boolder app
-          subtitle: The best way to enjoy bouldering in Fontainebleau, available on iPhone and Android.
+          subtitle: The best way to enjoy bouldering in Northumberland, available on iPhone and Android.
           cta: More info
         beginners_guide:
           title: The beginner's guide
@@ -70,7 +67,7 @@ en:
           subtitle: Discover more about the team and how to contribute to the project.
           cta: More info
       metas:
-        title: Bouldering in Fontainebleau
+        title: Bouldering in Northumberland
         description: Discover thousands of problems & circuits for all levels.
     mapping:
       see_on_map: See on the map
@@ -82,7 +79,7 @@ en:
           core_mapping_team_email_html: Drop us a line at %{link}, we'll be happy to discuss!
           metas: 
             title: Mapping
-            description: Help Boolder map all the bouldering routes in Fontainebleau
+            description: Help Boolder map all the bouldering routes in Northumberland
       problems:
         index:
           title: Problems to map in %{area}
@@ -133,7 +130,7 @@ en:
       map:
         metas:
           title: Contribute to Boolder
-          description: Help us map all problems in Fontainebleau
+          description: Help us map all problems in Northumberland
     reports:
       new:
         title: Report a mistake
@@ -143,14 +140,14 @@ en:
         metas:
           title: Report a mistake
     map:
-      fontainebleau:
+      northumberland:
         metas:
-          title: Map with topos for Fontainebleau
-          description: Interactive map for climbing in Fontainebleau
+          title: Map with topos for Northumberland
+          description: Interactive map for climbing in Northumberland
       area:
         metas:
           title: Map with topos for %{area}
-          description: Interactive map for climbing in %{area} in Fontainebleau
+          description: Interactive map for climbing in %{area} in Northumberland
       filters:
         label: Filters
         level: Level
@@ -167,7 +164,7 @@ en:
         apply: Apply
         clear: Clear
     app_landing:
-      title: All Fontainebleau in your pocket
+      title: All Northumberland in your pocket
       subtitle: "The best guide to enjoy bouldering in Font"
       android_announcement: We are looking for an Android developer
       selling_points:
@@ -184,8 +181,8 @@ en:
           title: Offline mode
           subtitle: The app works even in airplane mode
       metas:
-        title: All Fontainebleau in your pocket
-        description: The bouldering guide for Fontainebleau that fits in your pocket
+        title: All Northumberland in your pocket
+        description: The bouldering guide for Northumberland that fits in your pocket
     privacy:
       metas:
         title: Privacy
@@ -199,7 +196,7 @@ en:
       dev_description: "Contribute to the source code of our apps: Ruby on Rails, iPhone and Android."
       meetup:
         p1: Come climb and map with the Boolder team!
-        p2_html: On <span class="font-bold tracking-tight text-white">Sunday, May 26, 2024</span> around Fontainebleau (specific area to be determined).
+        p2_html: On <span class="font-bold tracking-tight text-white">Sunday, May 26, 2024</span> around Northumberland (specific area to be determined).
         cta: Join the Whatsapp group
       metas:
         title: Contribute
@@ -208,7 +205,7 @@ en:
       title_prefix: About
       history:
         title: The story
-        p1: "Boolder was born from the meeting between Romain, Cyril and Nicolas - two climbing enthusiasts and one technology enthusiast - living just a stone's throw from one of the most beautiful bouldering spots in the world: Fontainebleau."
+        p1: "Boolder was born from the meeting between Romain, Cyril and Nicolas - two climbing enthusiasts and one technology enthusiast - living just a stone's throw from one of the most beautiful bouldering spots in the world: Northumberland."
         p2: 'For Nicolas, it was love at first sight. His two friends made him discover the magic of "Font": the emblematic sectors, the history of the forest, the joy of climbing in the middle of nature, as well as the rules to respect (clean your shoes!).'
         p3: "The richness of the forest remained however intimidating: more than 200 sectors, several tens of thousands of boulders, and hundreds of circuits for all levels. How to find your way around?"
         p4: Nicolas then decided to map the forest in detail for nearly 2 years and create a modern guidebook. In 2023, Boolder launched as a free app on iPhone and Android.
@@ -217,7 +214,7 @@ en:
         title: The Project
         contact: contact
         p1: Boolder is a non-profit project, managed by volunteers.
-        p2_html: Our goal is to make discovering bouldering in Fontainebleau <strong>fun</strong> and <strong>respectful of the forest</strong>.
+        p2_html: Our goal is to make discovering bouldering in Northumberland <strong>fun</strong> and <strong>respectful of the forest</strong>.
         p3_html: The project is still very young, we welcome suggestions and ideas to foster help within the climbing community. Feel free to %{link} us!
       team:
         title: The team
@@ -261,7 +258,7 @@ en:
         title: About Boolder
     areas:
       index:
-        title: Fontainebleau
+        title: Northumberland
         sort_by:
           label: Sort by
           problems: Number of problems
@@ -280,15 +277,15 @@ en:
           dry_fast: Dries fast
           train_html: Accessible <br>by train + bike
         metas: 
-          title: All areas in Fontainebleau
-          description: Discover the best bouldering areas in Fontainebleau, the best spot in the world.
+          title: All areas in Northumberland
+          description: Discover the best bouldering areas in Northumberland, the best spot in the world.
         map:
           see: "See"
       levels:
         beginner_friendly: Beginner friendly
         areas: All areas by levels
         metas:
-          title: Areas by levels Fontainebleau
+          title: Areas by levels Northumberland
           description: Discover beginner friendly areas, and areas with the most problems graded 4, 5, 6, 7 or 8.
       show:
         see_map: See on the map
@@ -304,8 +301,8 @@ en:
         levels_chart:
           title: Number of problems by level
         metas:
-          title: "%{area}, Fontainebleau"
-          description: "All you need to know to climb in %{area} in Fontainebleau : problems, circuits, map, topos, access, ..."
+          title: "%{area}, Northumberland"
+          description: "All you need to know to climb in %{area} in Northumberland : problems, circuits, map, topos, access, ..."
       train_station: "%{name} train station"
       train_station_generic: "Train station"
     circuits:
@@ -314,15 +311,7 @@ en:
           title: "%{circuit} circuit at %{area}"
       index:
         metas:
-          title: All Fontainebleau circuits
-    circuit7a:
-      title: Fond of Font
-      subtitle_html: The impossible circuit of 100 7a by Seb Berthe and Hugo Parmentier in 2023.
-      see_on_map: See on map
-      see_movie: See the movie
-      metas:
-        title: Fond of Font - 100 7a circuit
-        description: The impossible circuit of 100 7a in Fontainebleau by Seb Berthe and Hugo Parmentier.
+          title: All Northumberland circuits
     problems:
       show:
         see_circuit: See the circuit
@@ -332,7 +321,7 @@ en:
           title: "%{problem} - %{grade} - %{area}"
       index:
         metas:
-          title: Popular problems in Fontainebleau
+          title: Popular problems in Northumberland
     search:
       placeholder: Name of problem or area
       clear: Clear
