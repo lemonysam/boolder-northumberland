@@ -28,6 +28,12 @@
             <div><%= t("problem.sit_start") %></div>
           <% end %>
         </div>
+
+        <div class="text-gray-500 flex space-x-2 mt-2">
+          <% if @problem.description_en 
+            <div><%= @problem.description_en %></div>
+          <% end %>
+        </div>
       </div>
 
       <div class="mt-4">

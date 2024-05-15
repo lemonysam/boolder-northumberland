@@ -38,6 +38,11 @@
   <%= form.check_box :sit_start %>
 </div>
 
+<div class="col-span-6 sm:col-span-1">
+  <%= form.label :description_en %>
+  <%= form.text_area :description_en, rows: 5 %>
+</div>  
+
 <div class="col-span-6 sm:col-span-2 sm:col-start-1">
   <%= form.label :parent_id, "Parent id" %>
   <%= form.text_field :parent_id, autocomplete: "off" %>
