@@ -13,7 +13,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
@@ -28,10 +28,10 @@ Rails.application.configure do
   config.assets.css_compressor = nil
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = 'd1tuum4k4qcbs8.cloudfront.net'
+  # config.asset_host = 'd1tuum4k4qcbs8.cloudfront.net'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for Apache
@@ -65,7 +65,7 @@ Rails.application.configure do
   # email
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "www.boolder.com", protocol: "https" }
+  config.action_mailer.default_url_options = { host: "radiant-plains-95233-f2711df13413.herokuapp.com", protocol: "https" }
   ActionMailer::Base.smtp_settings = {
     :address => 'email-smtp.eu-north-1.amazonaws.com',
     :port => '587',
@@ -74,6 +74,8 @@ Rails.application.configure do
     :password => Rails.application.credentials.dig(:amazon_smtp, :password),
   }
   config.action_mailer.perform_caching = false
+
+  config.active_storage.default_url_options = { host: "radiant-plains-95233-f2711df13413.herokuapp.com", protocol: "https" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

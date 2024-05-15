@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_25_074350) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_06_183020) do
   create_schema "heroku_ext"
 
   # These are extensions that must be enabled in order to support this database
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_25_074350) do
     t.text "description_en"
     t.text "warning_fr"
     t.text "warning_en"
-    t.integer "bleau_area_id", null: false
+    t.integer "bleau_area_id"
     t.index ["slug"], name: "index_areas_on_slug", unique: true
     t.index ["tags"], name: "index_areas_on_tags", using: :gin
   end

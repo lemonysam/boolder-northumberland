@@ -4,12 +4,12 @@
 <% set_meta_tags canonical: areas_url %>
 
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-8">
-  <h1 class="text-3xl font-bold mt-8 mb-4 px-4 sm:px-0">Fontainebleau</h1>
+  <h1 class="text-3xl font-bold mt-8 mb-4 px-4 sm:px-0"><%= t("region") %></h1>
 
   <div class="px-4 sm:px-0 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2">
     <div>
       <%= link_to beginners_guide_path, class: "min-w-max" do %>
-        <%= use_case_card(title: t("views.areas.index.cards.beginner_html"), color: "bg-gradient-to-b from-emerald-300 to-emerald-400") do %>
+        <%= use_case_card(title: t("views.areas.index.cards.beginner_html"), color: "bg-gradient-to-b from-indigo-300 to-indigo-400") do %>
           <% end %>
       <% end %>
     </div>
