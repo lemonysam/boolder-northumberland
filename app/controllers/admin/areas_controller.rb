@@ -8,6 +8,21 @@ class Admin::AreasController < Admin::BaseController
     set_area
   end
 
+  def new
+    @area = Area.new
+  end
+
+  def create
+    area = Area.new
+    area.assign_attributes(area_params)
+
+    area.save!
+
+    flash[:notice] = "Area created"
+    redirect_to [:admin, area]
+  end
+
+
   def show
     set_area
     redirect_to admin_area_problems_path(@area, circuit_id: 'first')
