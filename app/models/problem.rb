@@ -171,9 +171,6 @@ class Problem < ApplicationRecord
   end
 
   def grade_band
-    puts grade
-    puts %w( 6a 6a+ 6b 6b+ 6c 6c+ ).inspect
-    puts %w( 6a 6a+ 6b 6b+ 6c 6c+ ).include?(grade)
     case grade
       when  *%w(
         1a 1a+ 1b 1b+ 1c 1c+ 
@@ -194,7 +191,6 @@ class Problem < ApplicationRecord
       else
         0
       end
-
   end
 
   private
