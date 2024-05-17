@@ -28,15 +28,16 @@ div class="max-w-7xl mx-auto pt-6 pb-6 sm:px-6 lg:px-8"
         div class="text-gray-700 flex space-x-2 mt-2"
           - if @problem.description_en
             div= @problem.description_en
-      div class="mt-4"
         - if @problem.lines.any?
-          - @problem.lines.each do |line|
-            = render 'shared/topo_with_line', line: line, scope: :front
+          div class="mt-4 space-y-1"
+            - @problem.lines.each do |line|
+              = render 'shared/topo_with_line', line: line, scope: :front
         - else
-          div class="w-full aspect-w-4 aspect-h-3 bg-gray-300 sm:rounded-lg"
-            div class="flex flex-wrap justify-center content-center"
-              span class="text-gray-400"
-                = render 'svg/nophoto', width: 98, height: 98
+          div class="mt-4 space-y-1"
+            div class="w-full aspect-w-4 aspect-h-3 bg-gray-300 sm:rounded-lg"
+              div class="flex flex-wrap justify-center content-center"
+                span class="text-gray-400"
+                  = render 'svg/nophoto', width: 98, height: 98
 
       - if @problem.circuit_letter.blank? && (@problem.previous || @problem.next)
         div class="px-4 sm:px-0 py-2 flex justify-between items-center"
