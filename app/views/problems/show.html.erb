@@ -37,8 +37,10 @@
       </div>
 
       <div class="mt-4">
-        <% if @line %>
-          <%= render 'shared/topo_with_line', line: @line, scope: :front %>
+        <% if @problem.lines.any? %>
+          <% @problem.lines.each do |line| %>
+            <%= render 'shared/topo_with_line', line: line, scope: :front %>
+          <% end %>
         <% else %>
           <div class="w-full aspect-w-4 aspect-h-3 bg-gray-300 sm:rounded-lg">
             <div class="flex flex-wrap justify-center content-center">
