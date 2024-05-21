@@ -45,8 +45,8 @@ class Admin::ProblemsController < Admin::BaseController
 
     problem.save!
 
-    flash[:notice] = "Problem created"
-    redirect_to [:admin, problem]
+    flash[:notice] = "Problem created: #{view_context.link_to('view problem', [:admin, problem], class: 'underline')}."
+    redirect_to new_admin_problem_path(area_id: problem.area_id)
   end
 
   def show
