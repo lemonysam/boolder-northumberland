@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'Boolder <hello@boolder.com>'
+  default from: "#{t('app_name')} <hello@climbin.co.uk>"
   layout 'mailer'
 end
