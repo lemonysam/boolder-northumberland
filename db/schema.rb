@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_15_132932) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_23_190901) do
   create_schema "heroku_ext"
 
   # These are extensions that must be enabled in order to support this database
@@ -120,6 +120,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_15_132932) do
     t.datetime "updated_at", null: false
     t.bigint "area_id"
     t.boolean "ignore_for_area_hull", default: false, null: false
+    t.string "name"
     t.index ["area_id"], name: "index_boulders_on_area_id"
   end
 

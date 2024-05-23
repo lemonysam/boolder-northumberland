@@ -25,6 +25,7 @@ class Api::V1::MapsController < ActionController::Base
       hash = {}.with_indifferent_access
       hash[:boulder_id] = boulder.id
       hash[:updated_at] = boulder.updated_at
+      hash[:name] = boulder.name
       hash.deep_transform_keys! { |key| key.camelize(:lower) }
 
       factory.feature(boulder.polygon, nil, hash)
