@@ -92,8 +92,8 @@ namespace :mapbox do
     end
 
     # Extract boulders alongside problems to ensure we always upload both at the same time to mapbox
-    boulder_features = Boulder.where.not(area_id: [45,75,79, 104]).joins(:area).where(area: {published: true}).map do |boulder|
-      factory.feature(boulder.polygon, nil, { })
+    boulder_features = Boulder.where.not(area_id: [22,45,75,79]).joins(:area).where(area: {published: true}).map do |boulder|
+      factory.feature(boulder.polygon, nil, { name: boulder.name })
     end
 
     if include_boulders
