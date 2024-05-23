@@ -34,12 +34,11 @@ class Area < ApplicationRecord
       }
     end
     searchableAttributes [:name]
-    synonyms [['bas cuvier', 'cuvier']]
     customRanking ['asc(priority)']
   end
 
   def levels
-    @levels ||= 1.upto(8).map{|level| [level, problems.with_location.level(level).count >= 20] }.to_h
+    @levels ||= 1.upto(8).map{|level| [level, problems.with_location.level(level).count >= 15] }.to_h
   end
 
   def self.beginner_friendly
