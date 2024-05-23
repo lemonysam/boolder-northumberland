@@ -5,7 +5,7 @@ module Admin::AreasHelper
 
   def geojson_source_url(area, download: false, prod_url: false)
     args = { download: download.presence }
-    args.merge!(host: "www.boolder.com", port: nil, protocol: "https") if prod_url
+    args.merge!(host: "www.climbin.co.uk", port: nil, protocol: "https") if prod_url
 
     api_v1_area_area_map_url(area_id: area.id, format: :geojson, **args)
   end
