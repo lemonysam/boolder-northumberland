@@ -75,7 +75,7 @@ class Admin::ProblemsController < Admin::BaseController
   def problem_params
     params.require(:problem).
       permit(:area_id, :name, :grade, :steepness, :sit_start,
-        :bleau_info_id, :circuit_number, :circuit_letter, :circuit_id, :parent_id, :description_en
+        :bleau_info_id, :circuit_number, :circuit_letter, :circuit_id, :parent_id, :description_en, :history_note
       )
   end
 
