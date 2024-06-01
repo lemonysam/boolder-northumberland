@@ -1,3 +1,4 @@
+require 'exifr/jpeg'
 class Topo < ApplicationRecord
   has_many :lines, dependent: :destroy
   has_many :problems, through: :lines
