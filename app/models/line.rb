@@ -1,6 +1,6 @@
 class Line < ApplicationRecord
   belongs_to :problem, touch: true
-  belongs_to :topo
+  belongs_to :topo, touch: true
   accepts_nested_attributes_for :topo
 
   audited
