@@ -24,6 +24,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.tokenValue;
 
     this.map = new mapboxgl.Map({
+      bounds: [[-2.2806787, 55.6268050],[-1.0698927,54.180906]],
       container: 'map',
       language: this.localeValue, // doesn't seem to work?
       locale: this.localeValue == 'fr' ? this.getFrLocale() : null,
