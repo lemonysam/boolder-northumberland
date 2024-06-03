@@ -1,5 +1,5 @@
 en:
-  region: Northumberland
+  region: North East England
   app_name: Climbin
   circuit:
     name:
@@ -48,8 +48,8 @@ en:
       dry_fast: dries fast
   views:
     homepage:
-      title1: Bouldering
-      title2: in Northumberland
+      title1: Climb in
+      title2: North East England
       subtitle: Discover thousands of problems & circuits for all levels.
       see_map: See the map
       read_guide: Read the beginner's guide
@@ -58,7 +58,7 @@ en:
       promoted:
         app:
           title: Discover the Climbin app
-          subtitle: The best way to enjoy bouldering in Northumberland, available on iPhone and Android.
+          subtitle: The best way to enjoy bouldering in North East England, available on iPhone and Android.
           cta: More info
         beginners_guide:
           title: The beginner's guide
@@ -69,7 +69,7 @@ en:
           subtitle: Discover more about the team and how to contribute to the project.
           cta: More info
       metas:
-        title: Bouldering in Northumberland
+        title: Bouldering in North East England
         description: Discover thousands of problems & circuits for all levels.
     mapping:
       see_on_map: See on the map
@@ -81,7 +81,7 @@ en:
           core_mapping_team_email_html: Drop us a line at %{link}, we'll be happy to discuss!
           metas: 
             title: Mapping
-            description: Help Climbin map all the bouldering routes in Northumberland
+            description: Help Climbin map all the bouldering routes in North East England
       problems:
         index:
           title: Problems to map in %{area}
@@ -132,7 +132,7 @@ en:
       map:
         metas:
           title: Contribute to Climbin
-          description: Help us map all problems in Northumberland
+          description: Help us map all problems in North East England
     reports:
       new:
         title: Report a mistake
@@ -142,14 +142,14 @@ en:
         metas:
           title: Report a mistake
     map:
-      northumberland:
+      region:
         metas:
-          title: Map with topos for Northumberland
-          description: Interactive map for climbing in Northumberland
+          title: Map with topos for North East England
+          description: Interactive map for climbing in North East England
       area:
         metas:
           title: Map with topos for %{area}
-          description: Interactive map for climbing in %{area} in Northumberland
+          description: Interactive map for climbing in %{area} in North East England
       filters:
         label: Filters
         level: Level
@@ -166,7 +166,7 @@ en:
         apply: Apply
         clear: Clear
     app_landing:
-      title: All Northumberland in your pocket
+      title: All North East England in your pocket
       subtitle: "The best guide to enjoy bouldering in Font"
       android_announcement: We are looking for an Android developer
       selling_points:
@@ -183,8 +183,8 @@ en:
           title: Offline mode
           subtitle: The app works even in airplane mode
       metas:
-        title: All Northumberland in your pocket
-        description: The bouldering guide for Northumberland that fits in your pocket
+        title: All North East England in your pocket
+        description: The bouldering guide for North East England that fits in your pocket
     privacy:
       metas:
         title: Privacy
@@ -198,7 +198,7 @@ en:
       dev_description: "Contribute to the source code of our apps: Ruby on Rails, iPhone and Android."
       meetup:
         p1: Come climb and map with the Climbin team!
-        p2_html: On <span class="font-bold tracking-tight text-white">Sunday, May 26, 2024</span> around Northumberland (specific area to be determined).
+        p2_html: On <span class="font-bold tracking-tight text-white">Sunday, May 26, 2024</span> around North East England (specific area to be determined).
         cta: Join the Whatsapp group
       metas:
         title: Contribute
@@ -207,7 +207,7 @@ en:
       title_prefix: About
       history:
         title: The story
-        p1: "Climbin was born from the meeting between Romain, Cyril and Nicolas - two climbing enthusiasts and one technology enthusiast - living just a stone's throw from one of the most beautiful bouldering spots in the world: Northumberland."
+        p1: "Climbin was born from the meeting between Romain, Cyril and Nicolas - two climbing enthusiasts and one technology enthusiast - living just a stone's throw from one of the most beautiful bouldering spots in the world: North East England."
         p2: 'For Nicolas, it was love at first sight. His two friends made him discover the magic of "Font": the emblematic sectors, the history of the forest, the joy of climbing in the middle of nature, as well as the rules to respect (clean your shoes!).'
         p3: "The richness of the forest remained however intimidating: more than 200 sectors, several tens of thousands of boulders, and hundreds of circuits for all levels. How to find your way around?"
         p4: Nicolas then decided to map the forest in detail for nearly 2 years and create a modern guidebook. In 2023, Climbin launched as a free app on iPhone and Android.
@@ -216,7 +216,7 @@ en:
         title: The Project
         contact: contact
         p1: Climbin is a non-profit project, managed by volunteers.
-        p2_html: Our goal is to make discovering bouldering in Northumberland <strong>fun</strong> and <strong>respectful of the forest</strong>.
+        p2_html: Our goal is to make discovering bouldering in North East England <strong>fun</strong> and <strong>respectful of the forest</strong>.
         p3_html: The project is still very young, we welcome suggestions and ideas to foster help within the climbing community. Feel free to %{link} us!
       team:
         title: The team
@@ -260,7 +260,7 @@ en:
         title: About Climbin
     areas:
       index:
-        title: Northumberland
+        title: North East England
         sort_by:
           label: Sort by
           problems: Number of problems
@@ -279,15 +279,15 @@ en:
           dry_fast: Dries fast
           train_html: Accessible <br>by train + bike
         metas: 
-          title: All areas in Northumberland
-          description: Discover the best bouldering areas in Northumberland, the best spot in the world.
+          title: All areas in North East England
+          description: Discover the best bouldering areas in North East England, the best spot in the world.
         map:
           see: "See"
       levels:
         beginner_friendly: Beginner friendly
         areas: All areas by levels
         metas:
-          title: Areas by levels Northumberland
+          title: Areas by levels North East England
           description: Discover beginner friendly areas, and areas with the most problems graded 4, 5, 6, 7 or 8.
       show:
         see_map: See on the map
@@ -303,8 +303,8 @@ en:
         levels_chart:
           title: Number of problems by level
         metas:
-          title: "%{area}, Northumberland"
-          description: "All you need to know to climb in %{area} in Northumberland : problems, circuits, map, topos, access, ..."
+          title: "%{area}, North East England"
+          description: "All you need to know to climb in %{area} in North East England : problems, circuits, map, topos, access, ..."
       train_station: "%{name} train station"
       train_station_generic: "Train station"
     circuits:
@@ -313,7 +313,7 @@ en:
           title: "%{circuit} circuit at %{area}"
       index:
         metas:
-          title: All Northumberland circuits
+          title: All North East England circuits
     problems:
       show:
         see_circuit: See the circuit
@@ -323,7 +323,7 @@ en:
           title: "%{problem} - %{grade} - %{area}"
       index:
         metas:
-          title: Popular problems in Northumberland
+          title: Popular problems in North East England
     search:
       placeholder: Name of problem or area
       clear: Clear
