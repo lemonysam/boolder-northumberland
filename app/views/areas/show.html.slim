@@ -64,7 +64,7 @@ div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-8"
               - warning = I18n.locale == :en ? @area.warning_en : @area.warning_fr
               = warning_box
                 div class="" 
-                  = simple_format(warning)
+                  =  @markdown.render(warning).html_safe
 
         = link_to map_path(@area) do
           div class="flex items-center space-x-2 text-amber-600 mt-6"
