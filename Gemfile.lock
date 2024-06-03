@@ -287,6 +287,7 @@ GEM
       ffi (~> 1.0)
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
+    redcarpet (3.6.0)
     redis (4.2.5)
     redis-client (0.22.1)
       connection_pool
@@ -407,6 +408,7 @@ DEPENDENCIES
   rack-cors (~> 2.0.1)
   rails (~> 7.1)
   rails_12factor (~> 0.0.3)
+  redcarpet (~> 3.6.0)
   redis (~> 4.2.5)
   rgeo-geojson (~> 2.1.1)
   rorvswild (~> 1.6.4)

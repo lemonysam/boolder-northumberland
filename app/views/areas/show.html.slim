@@ -54,8 +54,9 @@ div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-8"
         - if I18n.locale == :fr && @area.description_fr.present? || I18n.locale == :en && @area.description_en.present?
           div class="pt-4"
             div class="pamber text-justify" 
-              - desc = I18n.locale == :en ? @area.description_en : @area.description_fr
-              = simple_format(desc)
+              article class="prose"
+                - desc = I18n.locale == :en ? @area.description_en : @area.description_fr
+                = @markdown.render(desc).html_safe
 
         - if I18n.locale == :fr && @area.warning_fr.present? || I18n.locale == :en && @area.warning_en.present?
           div class="pt-4"

@@ -22,6 +22,8 @@ class AreasController < ApplicationController
 
     @circuits = @area.main_circuits
 
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, extensions = {})
+
     @popular_problems = @area.problems.with_location.where(featured: true).order(grade: :desc, popularity: :desc)
   end
 

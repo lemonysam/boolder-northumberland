@@ -36,6 +36,7 @@ gem 'colorize', '~> 1.1.0'
 gem "audited", '~> 5.4.2'
 
 gem 'exifr', '~> 1.4.0'
+gem 'redcarpet', '~> 3.6.0'
 gem 'rgeo-geojson', '~> 2.1.1'
 
 # Use Active Model has_secure_password
