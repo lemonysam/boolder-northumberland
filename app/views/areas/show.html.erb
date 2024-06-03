@@ -72,9 +72,9 @@
 
           <% if (I18n.locale == :fr && @area.description_fr.present?) || (I18n.locale == :en && @area.description_en.present?) %>
             <div class="pt-4">
-              <div class="prose text-justify">
+              <article class="prose text-justify">
                 <% desc = I18n.locale == :en ? @area.description_en : @area.description_fr %>
-                <%= simple_format(desc) %>
+                <%= @markdown.render(desc).html_safe %>
               </div>
             </div>
           <% end %>
