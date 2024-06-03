@@ -84,7 +84,7 @@
               <% warning = I18n.locale == :en ? @area.warning_en : @area.warning_fr %>
               <%= warning_box do %>
                 <div>
-                  <%= simple_format(warning) %>
+                  <%= @markdown.render(warning).html_safe %>
                 </div>
               <% end %>
             </div>
