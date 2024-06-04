@@ -207,16 +207,15 @@ en:
       title_prefix: About
       history:
         title: The story
-        p1: "Climbin was born from the meeting between Romain, Cyril and Nicolas - two climbing enthusiasts and one technology enthusiast - living just a stone's throw from one of the most beautiful bouldering spots in the world: North East England."
-        p2: 'For Nicolas, it was love at first sight. His two friends made him discover the magic of "Font": the emblematic sectors, the history of the forest, the joy of climbing in the middle of nature, as well as the rules to respect (clean your shoes!).'
-        p3: "The richness of the forest remained however intimidating: more than 200 sectors, several tens of thousands of boulders, and hundreds of circuits for all levels. How to find your way around?"
-        p4: Nicolas then decided to map the forest in detail for nearly 2 years and create a modern guidebook. In 2023, Climbin launched as a free app on iPhone and Android.
-        podcast: "Learn more: Nicolas's interview on the podcast \"Allez\" (in French)"
+        p1: "Climbin is born out of the enthusiasm and generosity of the Boolder team. Their decision to make their Fontainbleau based app available for free and to open their source code for other projects makes this possible."
+        p2: 'Whilst on holiday in Fontainbleau Sam and Ian made heavy use of the Boolder app and were really impressed by its flexibilty and ease of use, when they got back Sam was tasked with working out whether we could adapt it to our use.'
+        p3: "As the area prepares for the next generation of guidebooks to be written, it's become clear how fragmented our climbing databases have become and how sizable the baarrier is to sharing new developments."
+        p4: So now, the team are working to build out a database of the best climbing Northeast England has to offer, and to share that datbase with all of you.
       project:
         title: The Project
         contact: contact
-        p1: Climbin is a non-profit project, managed by volunteers.
-        p2_html: Our goal is to make discovering bouldering in North East England <strong>fun</strong> and <strong>respectful of the forest</strong>.
+        p1_html: Climbin is a non-profit project, managed by volunteers - we are an extension of the incredible work done by the %{link} team in Fontainebleau.
+        p2_html: Our goal is to make discovering bouldering in North East England <strong>easy</strong> and to open up information on our region's climbing to all who want to use it.
         p3_html: The project is still very young, we welcome suggestions and ideas to foster help within the climbing community. Feel free to %{link} us!
       team:
         title: The team
@@ -229,9 +228,9 @@ en:
         p1: For any questions, you can contact us at 
       support:
         title: Thanks
-        p1: "We extend our thanks to everyone who has contributed to the Font ecosystem: the route setters, the circuit creators (aka \"track painters\"), and all those who have contributed to the maintenance and cleaning of boulders, anti-erosion operations, ..."
-        p2_html: Special thanks to %{link_bleau}, whose team has referenced almost 50.000 problems with great care and passion for the past 20 years, and made it free for everyone. You can support them on their %{link_bleau_sponsoring} page.
-        p3_html: We also extend our thanks to the %{link_cosiroc} association and the %{link_topo_bleau} website, which have provided a wealth of firsthand data and carried out numerous on-the-ground operations.
+        p1: "Firstly we must extend our thanks to the Boolder team, from which this guide takes many of its features and ideas. They are a tremendous asset to the climbing community and we've been grateful for their support."
+        p2: "Everyone who has contributed to UK climbing: the climbers, first ascensionist and all those who have contributed to the discovery, access arrangements, maintenance and cleaning of crags."
+        p3: We also extend our thanks to local activists, who have provided a wealth of firsthand data and carried out numerous on-the-ground operations.
         app: app
       open:
         title: A collaborative platform
@@ -240,18 +239,17 @@ en:
         contribute_link: contribute
       web_dev:
         title: Know how to code?
-        p1_html: We are actively looking for a %{link_web} and an %{link_ios} dev. Come and join us!
+        p1_html: We are always looking for contributors, if you are a dev who wants to get involved with Rails or Mobile development then please get in touch! 
       faq:
         title: Frequently asked questions
         data:
           question: Where does the data come from?
           p1: Photos and geographical data (GPS) were collected by the Climbin team.
-          p2_html: The problem names and grades come mainly from %{link_bleau}, %{link_cosiroc} and %{link_topo_bleau}.
-          p3: Some of the boulder drawings (in top view) are inspired by existing guidebooks. We are working to replace them with original drawings.
+          p2_html: The problem names and grades come mainly from local guidebooks and and the miniguides published at %{quiet_county} and %{climbonline}.
         why_free:
           question: Why is the app free?
           p1: Because we want as many people as possible to enjoy it!
-          p2: Nicolas took advantage of a sabbatical year to map many areas and code the first version of the application. Thanks to this, costs remained very low. We plan to keep this momentum going in the future thanks to volunteering and open source.
+          p2: The original Boolder team created the code and data and shared it with the climbing community, we have adapted their work to display UK crags and boulders (and their blessing of course!).
         privacy:
           question: Do you collect personal data?
           p1_html: You can consult our %{link}.
