@@ -7,6 +7,7 @@
     <% items = [] %>
     <% items << { text: "Request new contributions", link: new_admin_contribution_request_path(problem_id: @problem.id) } %>
     <% items << { text: "Edit", link: edit_admin_problem_path(@problem) } %>
+    <% items << { text: "Delete problem", link: admin_problem_path, data: { "turbo-confirm": 'Are you sure?', "turbo-method": :delete } } %>
     <%= render 'shared/dot_menu', items: items %>
   </div>
 <% end %>
