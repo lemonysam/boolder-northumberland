@@ -71,6 +71,14 @@ class Admin::ProblemsController < Admin::BaseController
     end
   end
 
+  def destroy
+    problem = Problem.find(params[:id])
+    problem.destroy!
+
+    flash[:notice] = "Problem destroyed"
+    redirect_to admin_area_path(problem.area)
+  end
+
   private 
   def problem_params
     params.require(:problem).
