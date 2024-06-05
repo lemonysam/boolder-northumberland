@@ -3,6 +3,7 @@
 - content_for :options do
   - items = []
   - items << { text: "New Area", link: new_admin_area_path }
+  - items << { text: "Import problems as CSV", link: new_admin_problem_import_path }
   = render "shared/dot_menu", items: items
 
 div class="flex flex-col my-6"
