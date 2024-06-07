@@ -8,15 +8,14 @@ class Admin::ProblemImportsController < Admin::BaseController
         problem = Problem.new(
           area: Area.find(hash["areaId"].to_i),
           name: hash["name"],
-          grade: hash["grade"],
           steepness: hash["steepness"].present? ? hash["steepness"].to_sym : :other,
           height: hash["height"],
           sit_start: hash["sit_start"] == "true",
           description_en: hash["description_en"],
           history_note: hash["history_note"],
         )
+        @problem.grade = Grade.find { |g| g.name == hash["grade"] && g.grade_type == 'font'} #todo, make flexible
 
-        puts problem.inspect
         problem.save!
       end
     end

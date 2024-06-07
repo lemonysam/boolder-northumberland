@@ -27,7 +27,7 @@ class Admin::ProblemsController < Admin::BaseController
     circuits = @area.sorted_circuits
     @circuit_tabs = circuits.map{|c| [c.id, c.name] }.push([nil, "All"])
 
-    @missing_grade = @area.problems.where("grade IS NULL OR grade = ''")
+    @missing_grade = @area.problems.without_grade
   end
 
   def new
@@ -42,6 +42,7 @@ class Admin::ProblemsController < Admin::BaseController
   def create
     problem = Problem.new
     problem.assign_attributes(problem_params)
+    problem.grade = Grade.find { |g| g.name == problem_params[:grade_name] && g.grade_type == grade_type}
 
     problem.save!
 
@@ -61,6 +62,9 @@ class Admin::ProblemsController < Admin::BaseController
     set_problem
 
     @problem.assign_attributes(problem_params)
+
+    @problem.grade = Grade.find { |g| g.name == problem_params[:grade_name] && g.grade_type == grade_type}
+
     
     if @problem.save
       flash[:notice] = "Problem updated"
@@ -82,9 +86,12 @@ class Admin::ProblemsController < Admin::BaseController
   private 
   def problem_params
     params.require(:problem).
-      permit(:area_id, :name, :grade, :steepness, :sit_start,
+      permit(:area_id, :name, :grade_name, :steepness, :sit_start,
         :bleau_info_id, :circuit_number, :circuit_letter, :circuit_id, :parent_id, :description_en, :history_note
       )
+  end
+  def grade_type
+    params.require(:grade_type)
   end
 
   def set_problem
