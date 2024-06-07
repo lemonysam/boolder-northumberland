@@ -20,7 +20,7 @@
         <div class="flex justify-between items-center">
           <div class="flex justify-between items-center w-full mt-2">
             <h1 class="text-4xl font-bold"><%= @problem.name_with_fallback %></h1>
-            <div class="text-gray-400 text-4xl font-bold"><%= @problem.grade.name %></div>
+            <div class="text-gray-400 text-4xl font-bold"><%= display_problem_grade(@problem) %></div>
           </div>
         </div>
         <div class="text-gray-500 flex space-x-2 mt-2">

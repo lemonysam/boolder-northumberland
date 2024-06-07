@@ -8,17 +8,22 @@
   <%= form.select :steepness, Problem::STEEPNESS_VALUES, { include_blank: false, default: :other } %>
 </div>
 
-<div class="col-span-6 sm:col-span-4">
+<div class="col-span-6 sm:col-span-3">
   <%= form.label :grade_name %>
   <%= form.select :grade_name, Problem::GRADE_VALUES %>
 </div>
 
-<div class="col-span-6 sm:col-span-4">
+<div class="col-span-6 sm:col-span-3">
+  <%= form.label :secondary_grade %>
+  <%= form.text_field :secondary_grade, autocomplete: "off" %>
+</div>
+
+<div class="col-span-6 sm:col-span-3">
   <%= form.label :grade_type %>
   <%= select_tag :grade_type, options_for_select(Grade::grade_types) %>
 </div>
 
-<div class="col-span-6 sm:col-span-4">
+<div class="col-span-6 sm:col-span-3">
   <%= form.label :sit_start %>
   <%= form.check_box :sit_start %>
 </div>

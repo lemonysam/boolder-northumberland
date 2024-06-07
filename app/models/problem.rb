@@ -1,7 +1,7 @@
 class Problem < ApplicationRecord
   belongs_to :circuit, optional: true
   belongs_to :area
-  belongs_to :grade, optional: true
+  belongs_to :grade
 
   has_many :lines, dependent: :destroy
   has_many :topos, through: :lines
@@ -27,7 +27,7 @@ class Problem < ApplicationRecord
   normalizes :name, :circuit_number, :circuit_letter, with: -> s { s.strip.presence }
 
   validates :steepness, inclusion: { in: STEEPNESS_VALUES }
-  validates :grade_name, inclusion: { in: GRADE_VALUES }, allow_blank: true
+  validates :grade_name, inclusion: { in: GRADE_VALUES }
   validates :landing, inclusion: { in: LANDING_VALUES }, allow_blank: true
   validates :bleau_info_id, uniqueness: true, allow_blank: true
   validate :validate_circuit_letter
