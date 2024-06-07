@@ -4,8 +4,9 @@
 </div>
 
 <div class="col-span-6 sm:col-span-1">
-  <%= form.label :grade %>
-  <%= form.text_field :grade, autocomplete: "off" %>
+  <%= form.label :grade_name %>
+  <%= form.select :grade_name, Problem::GRADE_VALUES %>
+  <%= hidden_field_tag :grade_type, :font %>
 </div>
 
 <div class="col-span-6 sm:col-span-2">

@@ -1,4 +1,4 @@
-<% set_meta_tags title: t("views.problems.show.metas.title", problem: @problem.name_with_fallback, grade: @problem.grade, area: @problem.area.name) %>
+<% set_meta_tags title: t("views.problems.show.metas.title", problem: @problem.name_with_fallback, grade: @problem.grade.name, area: @problem.area.name) %>
 
 <% set_meta_tags canonical: area_problem_url(@problem.area, @problem) %>
 
@@ -20,7 +20,7 @@
         <div class="flex justify-between items-center">
           <div class="flex justify-between items-center w-full mt-2">
             <h1 class="text-4xl font-bold"><%= @problem.name_with_fallback %></h1>
-            <div class="text-gray-400 text-4xl font-bold"><%= @problem.grade %></div>
+            <div class="text-gray-400 text-4xl font-bold"><%= @problem.grade.name %></div>
           </div>
         </div>
         <div class="text-gray-500 flex space-x-2 mt-2">
