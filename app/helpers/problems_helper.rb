@@ -25,15 +25,15 @@ module ProblemsHelper
 
   def grade_band_color(grade_band, fallback: "rgb(80% 80% 80%)")
     case grade_band
-      when 1
+      when :easy
         "#FFCC02"
-      when 2
+      when :moderate
         "#FF9500"
-      when 3
+      when :intermediate
         "#017AFF"
-      when 4
+      when :advanced
         "#FF3B2F"
-      when 5
+      when :expert
         "#000000"
       else
         fallback
