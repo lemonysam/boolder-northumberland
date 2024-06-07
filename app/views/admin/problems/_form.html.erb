@@ -3,15 +3,19 @@
   <%= form.text_field :name, autocomplete: "off" %>
 </div>
 
-<div class="col-span-6 sm:col-span-1">
-  <%= form.label :grade_name %>
-  <%= form.select :grade_name, Problem::GRADE_VALUES %>
-  <%= hidden_field_tag :grade_type, :font %>
-</div>
-
 <div class="col-span-6 sm:col-span-2">
   <%= form.label :steepness %>
   <%= form.select :steepness, Problem::STEEPNESS_VALUES, { include_blank: false, default: :other } %>
+</div>
+
+<div class="col-span-6 sm:col-span-4">
+  <%= form.label :grade_name %>
+  <%= form.select :grade_name, Problem::GRADE_VALUES %>
+</div>
+
+<div class="col-span-6 sm:col-span-4">
+  <%= form.label :grade_type %>
+  <%= select_tag :grade_type, options_for_select(Grade::grade_types) %>
 </div>
 
 <div class="col-span-6 sm:col-span-4">
