@@ -63,8 +63,7 @@ class Admin::ProblemsController < Admin::BaseController
 
     @problem.assign_attributes(problem_params)
 
-    @problem.grade = Grade.find { |g| g.name == problem_params[:grade_name] && g.grade_type == grade_type}
-
+    @problem.grade = Grade.find { |g| g.name == problem_params[:grade_name] && g.grade_type == grade_type
     
     if @problem.save
       flash[:notice] = "Problem updated"
@@ -90,8 +89,9 @@ class Admin::ProblemsController < Admin::BaseController
         :bleau_info_id, :circuit_number, :circuit_letter, :circuit_id, :parent_id, :description_en, :history_note
       )
   end
+
   def grade_type
-    params.require(:grade_type)
+    Grade.grade_types.key(params.require(:grade_type).to_i)
   end
 
   def set_problem

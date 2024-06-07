@@ -14,7 +14,7 @@ class Admin::ProblemImportsController < Admin::BaseController
           description_en: hash["description_en"],
           history_note: hash["history_note"],
         )
-        @problem.grade = Grade.find { |g| g.name == hash["grade"] && g.grade_type == 'font'} #todo, make flexible
+        @problem.grade = Grade.find { |g| g.name == hash["grade"] && g.grade_type == hash["grade"]} #todo, make flexible
 
         problem.save!
       end
