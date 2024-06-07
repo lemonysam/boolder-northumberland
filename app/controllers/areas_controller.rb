@@ -24,12 +24,12 @@ class AreasController < ApplicationController
 
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, extensions = {})
 
-    @popular_problems = @area.problems.with_location.where(featured: true).order(grade: :desc, popularity: :desc)
+    @popular_problems = @area.problems.with_location.ordered_by_grade.where(featured: true)
   end
 
   def problems
     @area = Area.find_by(slug: params[:slug])
     
-    @problems = @area.problems.with_location.order(popularity: :desc).group_by{|p| p.grade }.sort_by{|grade, _| grade }.reverse
+    @problems = @area.problems.with_location.order(popularity: :desc).group_by{|p| p.grade.name }.sort_by{|grade, _| grade }.reverse
   end
 end

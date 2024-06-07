@@ -3,8 +3,9 @@ div class="col-span-6 sm:col-span-4 sm:col-start-1"
   = form.text_field :name, autocomplete: "off"
   
 div class="col-span-6 sm:col-span-1"
-  = form.label :grade
-  = form.select :grade, Problem::GRADE_VALUES
+  = form.label :grade_name
+  = form.select :grade_name, Problem::GRADE_VALUES
+  = hidden_field_tag :grade_type, :font
   
 div class="col-span-6 sm:col-span-2"
   = form.label :steepness

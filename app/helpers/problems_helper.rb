@@ -1,7 +1,7 @@
 module ProblemsHelper
   def problem_circle_view(problem, circuit_color: false)
     circle_view(problem.circuit_number_simplified || "&nbsp;".html_safe, 
-      background_color: circuit_color ? uicolor(problem.circuit&.color) : grade_band_color(problem.grade_band), 
+      background_color: circuit_color ? uicolor(problem.circuit&.color) : grade_band_color(problem.grade), 
       text_color: text_color(problem.circuit&.color)
     )
   end
@@ -23,21 +23,14 @@ module ProblemsHelper
     color_mapping[circuit_color] || fallback
   end
 
-  def grade_band_color(grade_band, fallback: "rgb(80% 80% 80%)")
-    case grade_band
-      when :easy
-        "#FFCC02"
-      when :moderate
-        "#FF9500"
-      when :intermediate
-        "#017AFF"
-      when :advanced
-        "#FF3B2F"
-      when :expert
-        "#000000"
-      else
-        fallback
-    end
+  def grade_band_color(grade, fallback: "rgb(80% 80% 80%)")
+      return "#FFCC02" if grade&.easy?
+      return "#FF9500" if grade&.moderate?
+      return "#017AFF" if grade&.intermediate?
+      return "#FF3B2F" if grade&.advanced?
+      return "#000000" if grade&.expert?
+        
+      fallback
   end
 
   def bleau_info_url(problem)

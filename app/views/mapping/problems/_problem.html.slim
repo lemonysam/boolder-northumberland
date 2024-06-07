@@ -2,7 +2,7 @@ div class="flex justify-between py-2"
     div
       = problem_circle_view(problem)
       span class="ml-2"= problem.name_with_fallback
-      span class="ml-2 text-gray-500"= problem.grade
+      span class="ml-2 text-gray-500"= problem.grade.name
     div
       div class="flex space-x-2"
         div

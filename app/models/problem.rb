@@ -1,6 +1,8 @@
 class Problem < ApplicationRecord
   belongs_to :circuit, optional: true
   belongs_to :area
+  belongs_to :grade, optional: true
+
   has_many :lines, dependent: :destroy
   has_many :topos, through: :lines
   has_many :children, class_name: "Problem", foreign_key: "parent_id"
@@ -14,17 +16,7 @@ class Problem < ApplicationRecord
   include CheckConflicts
 
   STEEPNESS_VALUES = %w(wall slab overhang roof traverse other)
-  GRADE_VALUES = %w(
-    1a 1a+ 1b 1b+ 1c 1c+ 
-    2a 2a+ 2b 2b+ 2c 2c+ 
-    3a 3a+ 3b 3b+ 3c 3c+ 
-    4a 4a+ 4b 4b+ 4c 4c+ 
-    5a 5a+ 5b 5b+ 5c 5c+ 
-    6a 6a+ 6b 6b+ 6c 6c+ 
-    7a 7a+ 7b 7b+ 7c 7c+ 
-    8a 8a+ 8b 8b+ 8c 8c+ 
-    9a 9a+ 9b 9b+ 9c 9c+
-  )
+  GRADE_VALUES ||= Grade.all.map {|grade| grade.name}
   LANDING_VALUES = %w(easy medium hard)
   LETTER_BIS = 'b'
   LETTER_TER = 't'
@@ -35,7 +27,7 @@ class Problem < ApplicationRecord
   normalizes :name, :circuit_number, :circuit_letter, with: -> s { s.strip.presence }
 
   validates :steepness, inclusion: { in: STEEPNESS_VALUES }
-  validates :grade, inclusion: { in: GRADE_VALUES }, allow_blank: true
+  validates :grade_name, inclusion: { in: GRADE_VALUES }, allow_blank: true
   validates :landing, inclusion: { in: LANDING_VALUES }, allow_blank: true
   validates :bleau_info_id, uniqueness: true, allow_blank: true
   validate :validate_circuit_letter
@@ -49,7 +41,7 @@ class Problem < ApplicationRecord
     scope color, -> { joins(:circuit).where(circuits: { color: color }) } 
   end
 
-  scope :level, -> (i){ where("grade >= '#{i}a' AND grade < '#{i+1}a'").tap{raise unless i.in?(1..8)} }
+  scope :level, -> (i){ where("grade_name >= '#{i}a' AND grade_name < '#{i+1}a'").tap{raise unless i.in?(1..8)} }
   scope :significant_ascents, -> { where("ascents >= ?", 20) }
   scope :exclude_bis, -> { where(circuit_letter: [nil, '']) }
   scope :with_location, -> { where.not(location: nil) }
@@ -59,7 +51,10 @@ class Problem < ApplicationRecord
   scope :without_line_only, -> { where(has_line: false).with_location }
   scope :complete, -> { where(has_line: true).with_location }
   scope :incomplete, -> { where("problems.has_line = FALSE OR problems.location IS NULL") }
+  scope :without_grade, -> { where(grade: nil).with_location }
+
   scope :without_contribution_request, -> { left_joins(:contribution_requests).where(contribution_requests: { id: nil }) }
+  scope :ordered_by_grade, -> { includes(:grade).order('grades.name') }
 
   # reindex problems on algolia when area is updated
   # https://github.com/algolia/algoliasearch-rails#propagating-the-change-from-a-nested-child
@@ -67,7 +62,7 @@ class Problem < ApplicationRecord
 
   include AlgoliaSearch
   algoliasearch enqueue: true, disable_indexing: Rails.env.local? do
-    attributes :name, :grade, :popularity
+    attributes :name, :grade_name, :popularity
     attribute :area_name do area.name end
     attribute :published do published? end
     attribute :circuit_number do circuit_number_simplified end
@@ -168,27 +163,6 @@ class Problem < ApplicationRecord
   
   def update_has_line
     update(has_line: lines.published.with_coordinates.any?)
-  end
-
-  def grade_band
-    case grade
-      when  *%w(
-        1a 1a+ 1b 1b+ 1c 1c+ 
-        2a 2a+ 2b 2b+ 2c 2c+ 
-        3a 3a+ 3b 3b+ 3c 3c+ 
-        4a 4a+ 4b 4b+ 4c 4c+
-      )
-        :easy
-      when *%w(5a 5a+ 5b 5b+ 5c 5c+)
-        :moderate
-      when *%w(6a 6a+ 6b 6b+ 6c 6c+ )
-        :intermediate
-      when *%w(7a 7a+ 7b 7b+ 7c 7c+ )
-        :advanced
-      when *%w(8a 8a+ 8b 8b+ 8c 8c+ 
-        9a 9a+ 9b 9b+ 9c 9c+)
-        expert
-      end
   end
 
   private
