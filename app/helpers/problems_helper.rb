@@ -1,4 +1,10 @@
 module ProblemsHelper
+  def display_problem_grade(problem)
+    return "Missing Grade" unless problem.grade.present?
+    return "#{problem.grade.name} #{problem.secondary_grade}" if problem.grade.uk_trad?
+    problem.grade.name  
+  end
+
   def problem_circle_view(problem, circuit_color: false)
     circle_view(problem.circuit_number_simplified || "&nbsp;".html_safe, 
       background_color: circuit_color ? uicolor(problem.circuit&.color) : grade_band_color(problem.grade), 

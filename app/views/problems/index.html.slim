@@ -28,7 +28,7 @@ div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-8"
                   div
                     = problem_circle_view(problem)
                     span class="ml-2"= problem.name_with_fallback
-                    span class="ml-2 text-gray-500"= problem.grade.name
+                    span class="ml-2 text-gray-500"= display_problem_grade(problem)
                   div
                     div class="flex space-x-2"
                       div class="text-gray-400"

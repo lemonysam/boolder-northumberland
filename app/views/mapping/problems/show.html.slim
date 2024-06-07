@@ -18,7 +18,7 @@ div class="max-w-7xl mx-auto sm:px-6 lg:px-8"
       div class="flex justify-between items-center px-4 sm:px-0"
         div class="flex justify-between items-center w-full mt-2"
           h1 class="text-3xl font-bold"= @problem.name_with_fallback
-          div class="text-gray-400 text-4xl font-bold"= @problem.grade.name
+          div class="text-gray-400 text-4xl font-bold"= display_problem_grade(@problem)
 
 div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pb-8"
   div class="md:grid md:grid-cols-2 md:gap-16 mb-4"
