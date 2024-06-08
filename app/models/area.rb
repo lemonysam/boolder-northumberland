@@ -1,6 +1,6 @@
 class Area < ApplicationRecord
   has_many :boulders
-  has_many :problems
+  has_many :problems, -> { includes :grade }
   has_many :circuits, -> { distinct }, through: :problems
   has_many :poi_routes
   # belongs_to :bleau_area
