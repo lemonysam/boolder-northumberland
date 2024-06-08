@@ -41,8 +41,10 @@ class Problem < ApplicationRecord
     scope color, -> { joins(:circuit).where(circuits: { color: color }) } 
   end
 
-  scope :grade_band, -> (i){ puts i; includes(:grade).where(grades: { band: i }).tap{} }
+  scope :grade_band, -> (i){ includes(:grade).where(grades: { band: i }) }
   scope :level, -> (i){ where("grade_name >= '#{i}a' AND grade_name < '#{i+1}a'").tap{raise unless i.in?(1..8)} }
+  scope :grade_type, -> (i){ includes(:grade).where(grades: { grade_type: i }) }
+
   scope :significant_ascents, -> { where("ascents >= ?", 20) }
   scope :exclude_bis, -> { where(circuit_letter: [nil, '']) }
   scope :with_location, -> { where.not(location: nil) }
