@@ -42,7 +42,7 @@ class Admin::ProblemsController < Admin::BaseController
   def create
     problem = Problem.new
     problem.assign_attributes(problem_params)
-    problem.grade = Grade.find { |g| g.name == problem_params[:grade_name] && g.grade_type == grade_type}
+    problem.grade = Grade.find { |g| g.name == problem_params[:grade_name] }
 
     problem.save!
 
@@ -63,7 +63,7 @@ class Admin::ProblemsController < Admin::BaseController
 
     @problem.assign_attributes(problem_params)
 
-    @problem.grade = Grade.find { |g| g.name == problem_params[:grade_name] && g.grade_type == grade_type}
+    @problem.grade = Grade.find { |g| g.name == problem_params[:grade_name] }
     
     if @problem.save
       flash[:notice] = "Problem updated"
@@ -88,10 +88,6 @@ class Admin::ProblemsController < Admin::BaseController
       permit(:area_id, :name, :grade_name, :steepness, :sit_start, :secondary_grade,
         :bleau_info_id, :circuit_number, :circuit_letter, :circuit_id, :parent_id, :description_en, :history_note
       )
-  end
-
-  def grade_type
-    Grade.grade_types.key(params.require(:grade_type).to_i)
   end
 
   def set_problem
