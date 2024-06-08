@@ -78,6 +78,7 @@ namespace :mapbox do
       hash.merge!(problem.slice(:steepness, :featured, :popularity))
       hash[:grade] = problem.grade&.name
       hash[:grade_band] = problem.grade&.band
+      hash[:grade_type] = problem.grade.grade_type
       hash[:id] = problem.id
       hash[:circuit_color] = problem.circuit&.color
       hash[:circuit_id] = problem.circuit_id_simplified
