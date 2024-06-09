@@ -7,7 +7,7 @@ import { Controller } from '@hotwired/stimulus'
 export default class extends Controller {
   static targets = [ 
     "map", 
-    "gradeRadioButton", "gradeMin", "gradeMax", "customGradePicker",
+    "gradeRadioButton", "typeRadioButton", "gradeMin", "gradeMax", "customGradePicker",
     "filterCounter", "filterIcon" 
   ]
   static values = { 
@@ -18,6 +18,9 @@ export default class extends Controller {
     draft: { type: Boolean, default: false },
     contribute: { type: Boolean, default: false },
     contributeSource: String,
+    grades: Array,
+    bands: Array,
+    types: Array,
   }
 
   connect() {
@@ -51,13 +54,9 @@ export default class extends Controller {
 
     this.setupClickEvents()
 
-    // FIXME: make this DRY (see Problem::GRADE_VALUES)
-    this.allGrades = ["1a","1a+","1b","1b+","1c","1c+","2a","2a+","2b","2b+","2c","2c+","3a","3a+","3b","3b+","3c","3c+","4a","4a+","4b","4b+","4c","4c+","5a","5a+","5b","5b+","5c","5c+","6a","6a+","6b","6b+","6c","6c+","7a","7a+","7b","7b+","7c","7c+","8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+",]
-    this.yellowGrades = ["1a","1a+","1b","1b+","1c","1c+","2a","2a+","2b","2b+","2c","2c+","3a","3a+","3b","3b+","3c","3c+","4a","4a+","4b","4b+","4c","4c+"]
-    this.orangeGrades = ["5a","5a+","5b","5b+","5c","5c+",]
-    this.blueGrades = ["6a","6a+","6b","6b+","6c","6c+",]
-    this.redGrades = ["7a","7a+","7b","7b+","7c","7c+",]
-    this.blackGrades = ["8a","8a+","8b","8b+","8c","8c+","9a","9a+","9b","9b+","9c","9c+",]
+    this.allGrades = this.gradesValue
+    this.allBands = this.bandsValue
+    this.allTypes = this.typesValue
   }
 
   addControls() {
@@ -117,56 +116,21 @@ export default class extends Controller {
             18,
             4,
             22,
-            [
-              "case",
-              ["has", "circuitNumber"],
-              16,
-              10
-            ]
+            10
           ]
         ,
         'circle-color':  // FIXME: make it DRY  
           [
             "case",
-            [
-              "match",
-              ["get", "grade"],
-              this.yellowGrades,
-              true,
-              false
-            ],
+            ["==", ["get", "gradeBand"], "easy",],
             "#FFCC02",
-            [
-              "match",
-              ["get", "grade"],
-              this.orangeGrades,
-              true,
-              false
-            ],
+            ["==", ["get", "gradeBand"],"moderate",],
             "#FF9500",
-            [
-              "match",
-              ["get", "grade"],
-              this.blueGrades,
-              true,
-              false
-            ],
+            ["==", ["get", "gradeBand"], "intermediate",],
             "#017AFF",
-            [
-              "match",
-              ["get", "grade"],
-              this.redGrades,
-              true,
-              false
-            ],
+            ["==", ["get", "gradeBand"], "advanced",],
             "#FF3B2F",
-            [
-              "match",
-              ["get", "grade"],
-              this.blackGrades,
-              true,
-              false
-            ],
+            ["==", ["get", "gradeBand"], "elite",],
             "#000",
             "#878A8D"
           ]
@@ -180,7 +144,22 @@ export default class extends Controller {
           0,
           15,
           1
-        ]
+        ],
+        // 'circle-stroke-width': 
+        // [
+        //   "interpolate",
+        //   ["linear"],
+        //   ["zoom"],
+        //   14.5,
+        //   0,
+        //   15,
+        //   [
+        //     "case",
+        //     ['==', ['get', 'gradeType'], 'trad',],
+        //     2,
+        //     0
+        //   ]
+        // ]
       },
       filter: [
         "match",
@@ -194,53 +173,42 @@ export default class extends Controller {
     "areas" // layer will be inserted just before this layer
     );
 
-    // this.map.addLayer({
-    //   'id': 'problems-texts',
-    //   'type': 'symbol',
-    //   'source': 'problems',
-    //   'source-layer': 'exported_problems_1-4lxvn3',
-    //   'minzoom': 19,
-    //   'layout': {
-    //     'visibility': 'visible',
-    //     'text-allow-overlap': true,
-    //     'text-field': [
-    //       "to-string",
-    //       ["get", "circuitNumber"]
-    //     ],
-    //     'text-size': [
-    //       "interpolate",
-    //       ["linear"],
-    //       ["zoom"],
-    //       19,
-    //       10,
-    //       22,
-    //       20
-    //     ],
-    //   },
-    //   'paint': {
-    //     'text-color': 
-    //       [
-    //         "case",
-    //         [
-    //           "match",
-    //           ["get", "circuitColor"],
-    //           ["", "white"],
-    //           true,
-    //           false
-    //         ],
-    //         "#333",
-    //         "#fff",
-    //       ]
-    //     ,
-    //   },
-    //   filter: [
-    //     "match",
-    //       ["geometry-type"],
-    //       ["Point"],
-    //       true,
-    //       false
-    //   ],
-    // });
+    this.map.addLayer({
+      'id': 'problems-texts',
+      'type': 'symbol',
+      'source': 'problems',
+      'source-layer': 'exported_problems_1-4lxvn3',
+      'minzoom': 19,
+      'layout': {
+        'visibility': 'visible',
+        'text-allow-overlap': true,
+        'text-field': [
+            'case',
+            ['==', ['get', 'gradeType'], 'font',],
+            'b',
+            ''
+        ],
+        'text-size': [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          19,
+          10,
+          22,
+          20
+        ],
+      },
+      'paint': {
+        'text-color': "#fff",
+      },
+      filter: [
+        "match",
+          ["geometry-type"],
+          ["Point"],
+          true,
+          false
+      ],
+    });
 
     // CONTRIBUTE LAYERS
 
@@ -582,8 +550,6 @@ export default class extends Controller {
   // =========================================================
 
   didSelectFilter(event) {
-    this.gradeRadioButton = event.target.value
-
     if(this.gradeRadioButton == "custom") {
       this.customGradePickerTarget.classList.remove("hidden")
     }
@@ -592,40 +558,34 @@ export default class extends Controller {
     }
   }
 
+  didSelectTypeFilter(event) {
+    this.typeRadioButton = event.target.value
+  }
+
   applyFilters() {
+    this.gradeRadioButton =  this.gradeRadioButtonTargets.find(button => button.checked)?.value
+    this.typeRadioButton = this.typeRadioButtonTargets.find(button => button.checked)?.value
+
     this.filterCounterTarget.classList.remove("hidden")
     this.filterIconTarget.classList.add("hidden")
 
-    var grades = []
-    if(this.gradeRadioButton == "beginner") {
-      grades = ["1a","1a+","1b","1b+","1c","1c+","2a","2a+","2b","2b+","2c","2c+","3a","3a+","3b","3b+","3c","3c+",]
-    } 
-    else if(this.gradeRadioButton == "level4") {
-      grades = ["4a","4a+","4b","4b+","4c","4c+"]
-    }
-    else if(this.gradeRadioButton == "level5") {
-      grades = ["5a","5a+","5b","5b+","5c","5c+"]
-    } 
-    else if(this.gradeRadioButton == "level6") {
-      grades = ["6a","6a+","6b","6b+","6c","6c+"]
-    } 
-    else if(this.gradeRadioButton == "level7") {
-      grades = ["7a","7a+","7b","7b+","7c","7c+"]
-    } 
-    else if(this.gradeRadioButton == "level8") {
-      grades = ["8a","8a+","8b","8b+","8c","8c+"]
-    } 
-    else if(this.gradeRadioButton == "custom") {
+    let bands, types, grades = []
+    
+    types = this.allTypes.indexOf(this.typeRadioButton) > -1 ? [this.typeRadioButton] : this.allTypes
+    bands = this.allBands.indexOf(this.gradeRadioButton) > -1 ? [this.gradeRadioButton] : this.allBands
+
+    if(this.gradeRadioButton == "custom") {
       let gradeMin = this.gradeMinTarget.value
       let gradeMax = this.gradeMaxTarget.value
       grades = this.allGrades.slice(this.allGrades.indexOf(gradeMin), this.allGrades.indexOf(gradeMax) + 2)
-    } 
+    }
     else {
       grades = this.allGrades
     }
 
-    this.applyLayerFilter('problems', grades)
-    this.applyLayerFilter('problems-texts', grades)
+    this.applyLayerFilter('problems', grades, types, bands)
+    this.applyLayerFilter('problems-texts', grades, types, bands)
+
   }
 
   clearFilters() {
@@ -638,17 +598,38 @@ export default class extends Controller {
       item.checked = false
     })
 
-    this.applyLayerFilter('problems', this.allGrades)
-    this.applyLayerFilter('problems-texts', this.allGrades)
+    this.typeRadioButtonTargets.forEach(item => {
+      item.checked = false
+    })
+
+    this.applyLayerFilter('problems', this.allGrades, this.allTypes, this.allBands)
+    this.applyLayerFilter('problems-texts', this.allGrades, this.allTypes, this.allBands)
   }
 
-  applyLayerFilter(layer, grades) {
+  applyLayerFilter(layer, grades, types, bands) {
     this.map.setFilter(layer, [
-      'match',
-      ['get', 'grade'],
-      grades,
-      true,
-      false
+      'all',
+      [
+        'match',
+        ['get', 'grade'],
+        grades,
+        true,
+        false
+      ],
+      [
+        'match',
+        ['get', 'gradeType'],
+        types,
+        true,
+        false
+      ],
+      [
+        'match',
+        ['get', 'gradeBand'],
+        bands,
+        true,
+        false
+      ],
     ]);
   }
 

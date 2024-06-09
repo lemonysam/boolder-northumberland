@@ -37,6 +37,7 @@ en:
     risky: Risky
     featured: Popular
     filters:
+      type: Type
       level: Level
       circuit: Circuit
       selection: Selection
@@ -153,14 +154,14 @@ en:
       filters:
         label: Filters
         level: Level
-        beginner: Level 1 → 3
-        level4: Level 4
-        level5: Level 5
-        level6: Level 6
-        level7: Level 7
-        level8: Level 8
-        beginner_label: Beginner
+        easy: Easy
+        moderate: Moderate
+        intermediate: Intermediate
+        advanced: Advanced
+        elite: Elite
         custom: Custom
+        trad: Trad Routes
+        font: Boulder problems
         grade_min: Grade min
         grade_max: Grade max
         apply: Apply
@@ -296,7 +297,7 @@ en:
         all_problems: See all problems (%{count})
         access: Access
         problems: Problems
-        problems_in: Problems in %{area}
+        problems_in: Climbs in %{area}
         loading: Loading...
         levels_chart:
           title: Number of problems by level

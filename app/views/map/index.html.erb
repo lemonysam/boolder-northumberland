@@ -24,6 +24,9 @@ class="flex-auto relative"
 id='map'
 data-mapbox-target="map"
 data-mapbox-locale-value="<%= I18n.locale %>"
+data-mapbox-grades-value="<%= Grade.all.map{|g| g.name}.to_json %>"
+data-mapbox-bands-value="<%= Grade.bands.keys %>"
+data-mapbox-types-value="<%= Grade.grade_types.keys %>"
 
 # data-mapbox-contribute-source-value="<%= mapping_requests_path(format: :geojson) %>"
 data-mapbox-contribute-value="<%= params[:contribute] ? "true" : "false" %>"
