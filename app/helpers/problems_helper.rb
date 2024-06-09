@@ -1,7 +1,7 @@
 module ProblemsHelper
   def display_problem_grade(problem)
     return "Missing Grade" unless problem.grade.present?
-    return "#{problem.grade.name} #{problem.secondary_grade}" if problem.grade.uk_trad?
+    return "#{problem.grade.name} #{problem.secondary_grade}" if problem.grade.trad?
     problem.grade.name  
   end
 
