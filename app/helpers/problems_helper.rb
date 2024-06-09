@@ -34,7 +34,7 @@ module ProblemsHelper
       return "#FF9500" if grade&.moderate?
       return "#017AFF" if grade&.intermediate?
       return "#FF3B2F" if grade&.advanced?
-      return "#000000" if grade&.expert?
+      return "#000000" if grade&.elite?
         
       fallback
   end

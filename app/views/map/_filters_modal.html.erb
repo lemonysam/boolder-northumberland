@@ -34,38 +34,44 @@
       </div>
       <div class="">
         <div class="mt-3 text-center sm:mt-0">
-          <h3 class="text-lg font-medium leading-6 text-gray-900 mb-4"><%= t('views.map.filters.level') %></h3>
+          <h3 class="text-lg font-medium leading-6 text-gray-900 mb-4"><%= t('views.map.filters.type') %></h3>
         </div>
-
-          <fieldset class="">
-            <legend class="sr-only">Levels</legend>
-            <div class="relative -space-y-px rounded-md bg-white">
+        <fieldset class="">
+          <legend class="sr-only">Types</legend>
+          <div class="relative -space-y-px rounded-md bg-white">
+            <% Grade::grade_types.keys.each do |type| %>
               <!-- Checked: "bg-amber-50 border-amber-200 z-20", Not Checked: "border-gray-200" -->
-              <label class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer md:pl-4 md:pr-6 grid grid-cols-2 focus:outline-none">
+              <label class="relative border p-4 flex cursor-pointer md:pl-4 md:pr-6 grid grid-cols-2 focus:outline-none">
                 <span class="flex items-center text-sm">
-                  <input data-action="mapbox#didSelectFilter" data-mapbox-target="gradeRadioButton" type="radio" name="gradeRadioButton" value="beginner" class="h-4 w-4 text-amber-600 border-gray-300 focus:ring-amber-500">
+                  <input data-action="mapbox#didSelectFilter" data-mapbox-target="typeRadioButton" type="radio" name="typeRadioButton" value="<%= type %>" class="h-4 w-4 text-amber-600 border-gray-300 focus:ring-amber-500">
                   <!-- Checked: "text-amber-900", Not Checked: "text-gray-900" -->
-                  <span class="ml-3 font-medium"><%= t('views.map.filters.beginner') %></span>
+                  <span class="ml-3 font-medium"><%= t("views.map.filters.#{type}") %></span>
                 </span>
                 
                 <!-- Checked: "text-amber-700", Not Checked: "text-gray-500" -->
-                <span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 text-right text-gray-400"><%= t('views.map.filters.beginner_label') %></span>
+                <span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 text-right text-gray-400"></span>
               </label>
-
-              <% (4..7).each do |level| %>
-
+            <% end %>
+          </div>
+          </fieldset>
+          <div class="mt-3 text-center sm:mt-3">
+            <h3 class="text-lg font-medium leading-6 text-gray-900 mb-4"><%= t('views.map.filters.level') %></h3>
+          </div>
+          <fieldset class="">
+            <legend class="sr-only">Levels</legend>
+            <div class="relative -space-y-px rounded-md bg-white">
+              <% Grade::bands.keys.each do |level| %>
                 <!-- Checked: "bg-amber-50 border-amber-200 z-20", Not Checked: "border-gray-200" -->
                 <label class="relative border p-4 flex cursor-pointer md:pl-4 md:pr-6 grid grid-cols-2 focus:outline-none">
                   <span class="flex items-center text-sm">
-                    <input data-action="mapbox#didSelectFilter" data-mapbox-target="gradeRadioButton" type="radio" name="gradeRadioButton" value="<%= "level#{level}" %>" class="h-4 w-4 text-amber-600 border-gray-300 focus:ring-amber-500">
+                    <input data-action="mapbox#didSelectFilter" data-mapbox-target="gradeRadioButton" type="radio" name="gradeRadioButton" value="<%= "#{level}" %>" class="h-4 w-4 text-amber-600 border-gray-300 focus:ring-amber-500">
                     <!-- Checked: "text-amber-900", Not Checked: "text-gray-900" -->
-                    <span class="ml-3 font-medium"><%= t("views.map.filters.level#{level}") %></span>
+                    <span class="ml-3 font-medium"><%= t("views.map.filters.#{level}") %></span>
                   </span>
                   
                   <!-- Checked: "text-amber-700", Not Checked: "text-gray-500" -->
                   <span class="ml-6 pl-1 text-sm md:ml-0 md:pl-0 text-right text-gray-400"></span>
                 </label>
-
               <% end %>
 
               <!-- Checked: "bg-amber-50 border-amber-200 z-20", Not Checked: "border-gray-200" -->

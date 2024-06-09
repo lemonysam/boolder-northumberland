@@ -37,7 +37,7 @@
                   <div class="flex min-w-0 flex-1 items-center">
                     <div class="flex justify-between w-full pr-2">
                       <div class="text-gray-700">
-                        <%= t("views.areas.show.problems_count", problems_count: @area.problems.with_location.grade_type('font').count, trad_count: @area.problems.with_location.grade_type('uk_trad').count) %>
+                        <%= t("views.areas.show.problems_count", problems_count: @area.problems.with_location.grade_type('font').count, trad_count: @area.problems.with_location.grade_type('trad').count) %>
                       </div>
                       <div>
                         <%= render "shared/area_levels", area: @area %>
