@@ -51,7 +51,7 @@ en:
     homepage:
       title1: Climb in
       title2: North East England
-      subtitle: Discover thousands of problems & circuits for all levels.
+      subtitle: Discover thousands of problems & route accross the region.
       see_map: See the map
       read_guide: Read the beginner's guide
       popular_areas: Popular areas
@@ -113,9 +113,9 @@ en:
           how_to: Read the instructions
           warning_horizontal_html: 'Important: photos must be <span class=" underline">horizontal</span>.'
           problem: Problem
-          problem_url_label: Link (bleau.info or Climbin)
+          problem_url_label: Link
           boulder: Boulder photo
-          boulder_description: Take a picture of the boulder with your phone.
+          boulder_description: Take a picture of the boulder with your phone (ideally with location turned on).
           line: Route line
           line_description: Indicate how to climb the boulder.
           location: Start location
@@ -133,12 +133,12 @@ en:
       map:
         metas:
           title: Contribute to Climbin
-          description: Help us map all problems in North East England
+          description: Help us map the climbing in North East England
     reports:
       new:
         title: Report a mistake
         mistake: Mistake description
-        mistake_description: Give as much details as possible and feel free to add links to the relevant problems/circuits.
+        mistake_description: Give as much details as possible and feel free to add links to the relevant climbs.
         flash_success: Thank you for your report!
         metas:
           title: Report a mistake
@@ -192,9 +192,9 @@ en:
     contribute:
       title: Contribute to Climbin
       mapping_title: Mapping
-      mapping_description: Go to an area and take pictures of the missing boulders with your phone.
+      mapping_description: Go to an area and take pictures of the missing lines with your phone.
       report_title: Report a mistake
-      report_description: Report a mistake on an existing problem or circuit.
+      report_description: Report a mistake on an existing problem or route.
       dev_title: For Developers
       dev_description: "Contribute to the source code of our apps: Ruby on Rails, iPhone and Android."
       meetup:
@@ -209,21 +209,17 @@ en:
       history:
         title: The story
         p1: "Climbin is born out of the enthusiasm and generosity of the Boolder team. Their decision to make their Fontainbleau based app available for free and to open their source code for other projects makes this possible."
-        p2: 'Whilst on holiday in Fontainbleau Sam and Ian made heavy use of the Boolder app and were really impressed by its flexibilty and ease of use, when they got back Sam was tasked with working out whether we could adapt it to our use.'
-        p3: "As the area prepares for the next generation of guidebooks to be written, it's become clear how fragmented our climbing databases have become and how sizable the baarrier is to sharing new developments."
+        p2: 'Whilst on holiday in Fontainbleau Sam and Ian made heavy use of the Boolder app and were really impressed by its flexibilty and ease of use, when they got back Sam was tasked with working out whether we could adapt it to our region.'
+        p3: "As the area prepares for the next generation of guidebooks to be written, it's become clear how fragmented our climbing databases have become and how sizable the barrier is to sharing new developments."
         p4: So now, the team are working to build out a database of the best climbing Northeast England has to offer, and to share that database with all of you.
       project:
         title: The Project
         contact: contact
         p1_html: Climbin is a non-profit project, managed by volunteers - we are an extension of the incredible work done by the %{link} team in Fontainebleau.
         p2_html: Our goal is to make discovering bouldering in North East England <strong>easy</strong> and to open up information on our region's climbing to all who want to use it.
-        p3_html: The project is still very young, we welcome suggestions and ideas to foster help within the climbing community. Feel free to %{link} us!
+        p3_html: The project is still very young, we welcome suggestions and ideas to make this a more useful tool. Feel free to %{link} us!
       team:
         title: The team
-        nico_desc: Dev, mapping
-        romain_desc: Climbing lover
-        cyril_desc: Climbing lover
-        emile_desc: Mapping
       contact:
         title: Contact
         p1: For any questions, you can contact us at 
@@ -235,7 +231,7 @@ en:
         app: app
       open:
         title: A collaborative platform
-        p1_html: The code and data of the apps are available in open source on %{link}.
+        p1_html: The code and data of the app is available in open source on %{link}.
         p2_html: You can also %{link} by mapping missing problems or by reporting mistakes.
         contribute_link: contribute
       web_dev:
@@ -250,7 +246,7 @@ en:
         why_free:
           question: Why is the app free?
           p1: Because we want as many people as possible to enjoy it!
-          p2: The original Boolder team created the code and data and shared it with the climbing community, we have adapted their work to display UK crags and boulders (and their blessing of course!).
+          p2: The original Boolder team created their codebase and shared it with the climbing community, we have adapted their work to display UK crags and boulders (and their blessing of course!).
         privacy:
           question: Do you collect personal data?
           p1_html: You can consult our %{link}.
@@ -303,7 +299,7 @@ en:
           title: Number of problems by level
         metas:
           title: "%{area}, North East England"
-          description: "All you need to know to climb in %{area} in North East England : problems, circuits, map, topos, access, ..."
+          description: "All you need to know to climb in %{area} in North East England : problems, routes, map, topos, access, ..."
       train_station: "%{name} train station"
       train_station_generic: "Train station"
     circuits:
