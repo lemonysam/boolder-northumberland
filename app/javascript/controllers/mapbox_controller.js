@@ -550,7 +550,7 @@ export default class extends Controller {
   // =========================================================
 
   didSelectFilter(event) {
-    if(this.gradeRadioButton == "custom") {
+    if(event.target.value == "custom") {
       this.customGradePickerTarget.classList.remove("hidden")
     }
     else {
