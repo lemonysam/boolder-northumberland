@@ -9,12 +9,14 @@ class Admin::ProblemImportsController < Admin::BaseController
           area: Area.find(hash["areaId"].to_i),
           name: hash["name"],
           steepness: hash["steepness"].present? ? hash["steepness"].to_sym : :other,
+          grade: Grade.find { |g| g.name == hash["grade"]},
+          grade_name: hash["grade"],
+          secondary_grade: hash["secondary_grade"],
           height: hash["height"],
           sit_start: hash["sit_start"] == "true",
           description_en: hash["description_en"],
           history_note: hash["history_note"],
         )
-        @problem.grade = Grade.find { |g| g.name == hash["grade"] && g.grade_type == hash["grade"]} #todo, make flexible
 
         problem.save!
       end
