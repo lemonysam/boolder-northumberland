@@ -65,9 +65,10 @@ class Problem < ApplicationRecord
 
   include AlgoliaSearch
   algoliasearch enqueue: true, disable_indexing: Rails.env.local? do
-    attributes :name, :grade_name, :popularity
+    attributes :name, :popularity
     attribute :area_name do area.name end
     attribute :published do published? end
+    attribute :grade_name do grade.name end
     attribute :circuit_number do circuit_number_simplified end
     attribute :circuit_color do circuit&.color end
     attribute :_geoloc do { lat: location&.lat || 0.0, lng: location&.lon || 0.0 } end
