@@ -7,7 +7,7 @@
 
 <div class="max-w-7xl mx-auto pt-5 mt-1 px-4 sm:px-6 lg:px-8 bg-gray-100 hidden sm:block mb-4">
   <%= link_to areas_path, class: "text-sm font-medium text-gray-500 hover:text-gray-700 flex items-center space-x-1" do %>
-    <div>Fontainebleau</div>
+    <div><%= t("region") %></div>
   <% end %>
 </div>
 
@@ -37,7 +37,7 @@
                   <div class="flex min-w-0 flex-1 items-center">
                     <div class="flex justify-between w-full pr-2">
                       <div class="text-gray-700">
-                        <%= t("views.areas.show.problems_count", count: @area.problems.with_location.count) %>
+                        <%= t("views.areas.show.problems_count", problems_count: @area.problems.with_location.grade_type('font').count, trad_count: @area.problems.with_location.grade_type('trad').count) %>
                       </div>
                       <div>
                         <%= render "shared/area_levels", area: @area %>
@@ -72,9 +72,9 @@
 
           <% if (I18n.locale == :fr && @area.description_fr.present?) || (I18n.locale == :en && @area.description_en.present?) %>
             <div class="pt-4">
-              <div class="prose text-justify">
+              <article class="prose text-justify">
                 <% desc = I18n.locale == :en ? @area.description_en : @area.description_fr %>
-                <%= simple_format(desc) %>
+                <%= @markdown.render(desc).html_safe %>
               </div>
             </div>
           <% end %>
@@ -84,14 +84,14 @@
               <% warning = I18n.locale == :en ? @area.warning_en : @area.warning_fr %>
               <%= warning_box do %>
                 <div>
-                  <%= simple_format(warning) %>
+                  <%= @markdown.render(warning).html_safe %>
                 </div>
               <% end %>
             </div>
           <% end %>
 
           <%= link_to map_path(@area) do %>
-            <div class="flex items-center space-x-2 text-emerald-600 mt-6">
+            <div class="flex items-center space-x-2 text-amber-600 mt-6">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
