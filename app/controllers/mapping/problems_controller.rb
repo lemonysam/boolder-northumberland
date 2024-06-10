@@ -14,7 +14,7 @@ class Mapping::ProblemsController < ApplicationController
       group_by(&:location_estimated).
       sort_by{|location, requests| requests.inject(0) {|sum, req| sum + req.problem.ascents.to_i } }.reverse
 
-    @problems = @area.problems.where(location: nil).without_contribution_request.order(grade: :desc)
+    @problems = @area.problems.where(location: nil).without_contribution_request.ordered_by_grade
 
     @tab = params[:tab] == "rest" ? :rest : :prio
   end
