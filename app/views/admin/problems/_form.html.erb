@@ -1,11 +1,6 @@
-<div class="col-span-6 sm:col-span-4 sm:col-start-1">
+<div class="col-span-6 sm:col-span-6 sm:col-start-1">
   <%= form.label :name %>
   <%= form.text_field :name, autocomplete: "off" %>
-</div>
-
-<div class="col-span-6 sm:col-span-2">
-  <%= form.label :steepness %>
-  <%= form.select :steepness, Problem::STEEPNESS_VALUES, { include_blank: false, default: :other } %>
 </div>
 
 <div class="col-span-6 sm:col-span-3">
@@ -18,19 +13,24 @@
   <%= form.text_field :secondary_grade, autocomplete: "off" %>
 </div>
 
-<div class="col-span-6 sm:col-span-3">
-  <%= form.label :sit_start %>
-  <%= form.check_box :sit_start %>
-</div>
-
-<div class="col-span-6 sm:col-span-1">
+<div class="col-span-6 sm:col-span-6">
   <%= form.label :description_en %>
   <%= form.text_area :description_en, rows: 5 %>
 </div>  
 
-<div class="col-span-6 sm:col-span-1">
+<div class="col-span-6 sm:col-span-6">
   <%= form.label :history_note %>
   <%= form.text_field :history_note, autocomplete: "off" %>
+</div>
+
+<div class="col-span-6 sm:col-span-1">
+  <%= form.label :sit_start %>
+  <%= form.check_box :sit_start %>
+</div>
+
+<div class="col-span-6 sm:col-span-2">
+  <%= form.label :steepness %>
+  <%= form.select :steepness, Problem::STEEPNESS_VALUES, { include_blank: false, default: :other } %>
 </div>
 
 <div class="col-span-6 sm:col-span-2 sm:col-start-1">
