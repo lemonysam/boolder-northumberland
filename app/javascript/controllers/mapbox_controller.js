@@ -85,7 +85,7 @@ export default class extends Controller {
   addLayers() {
     this.map.addSource('problems', {
       type: 'vector',
-      url: 'mapbox://samcartwright.1kpiy4fr',
+      url: 'mapbox://samcartwright.climbinproblemsandboulders',
       promoteId: "id"
     });
 
@@ -93,7 +93,7 @@ export default class extends Controller {
       'id': 'problems',
       'type': 'circle',
       'source': 'problems',
-      'source-layer': 'exported_problems_1-4lxvn3',
+      'source-layer': 'climbinproblemsandboulders',
       'minzoom': 15,
       'layout': {
         'visibility': 'visible',
@@ -145,21 +145,6 @@ export default class extends Controller {
           15,
           1
         ],
-        // 'circle-stroke-width': 
-        // [
-        //   "interpolate",
-        //   ["linear"],
-        //   ["zoom"],
-        //   14.5,
-        //   0,
-        //   15,
-        //   [
-        //     "case",
-        //     ['==', ['get', 'gradeType'], 'trad',],
-        //     2,
-        //     0
-        //   ]
-        // ]
       },
       filter: [
         "match",
@@ -170,14 +155,14 @@ export default class extends Controller {
       ],
     }
     ,
-    "areas" // layer will be inserted just before this layer
+    "climbinareas2024" // layer will be inserted just before this layer
     );
 
     this.map.addLayer({
       'id': 'problems-texts',
       'type': 'symbol',
       'source': 'problems',
-      'source-layer': 'exported_problems_1-4lxvn3',
+      'source-layer': 'climbinproblemsandboulders',
       'minzoom': 19,
       'layout': {
         'visibility': 'visible',
@@ -223,8 +208,6 @@ export default class extends Controller {
       'id': 'contribute-problems',
       'type': 'circle',
       'source': 'contribute',
-      // 'source-layer': 'problems-ayes3a',
-      // 'minzoom': 12,
       'layout': {
         'visibility': 'visible',
         'circle-sort-key': 
@@ -271,7 +254,7 @@ export default class extends Controller {
       ],
       }
       ,
-      "areas" // layer will be inserted just before this layer
+      "climbinareas2024" // layer will be inserted just before this layer
       );
   
       this.map.addLayer({
@@ -451,18 +434,18 @@ export default class extends Controller {
     });
 
     // FIXME: make DRY
-    this.map.on('mouseenter', 'areas', () => {
+    this.map.on('mouseenter', 'climbinareas2024', () => {
       if(this.map.getZoom() < 15) {
         this.map.getCanvas().style.cursor = 'pointer';
       }
     });
-    this.map.on('mouseleave', 'areas', () => {
+    this.map.on('mouseleave', 'climbinareas2024', () => {
       if(this.map.getZoom() < 15) {
         this.map.getCanvas().style.cursor = '';
       }
     });
 
-    this.map.on('click', 'areas', (e) => {
+    this.map.on('click', 'climbinareas2024', (e) => {
       if(this.map.getZoom() < 15) {
         let props = e.features[0].properties
         this.flyToBounds([[props.southWestLon, props.southWestLat], [props.northEastLon, props.northEastLat]])
@@ -470,18 +453,18 @@ export default class extends Controller {
     });
 
      // FIXME: make DRY
-    this.map.on('mouseenter', 'areas-hulls', () => {
+    this.map.on('mouseenter', 'climbinareas2024-hulls', () => {
       if(this.map.getZoom() < 15) {
         this.map.getCanvas().style.cursor = 'pointer';
       }
     });
-    this.map.on('mouseleave', 'areas-hulls', () => {
+    this.map.on('mouseleave', 'climbinareas2024-hulls', () => {
       if(this.map.getZoom() < 15) {
         this.map.getCanvas().style.cursor = '';
       }
     });
 
-    this.map.on('click', 'areas-hulls', (e) => {
+    this.map.on('click', 'climbinareas2024-hulls', (e) => {
       if(this.map.getZoom() < 15) {
         let props = e.features[0].properties
         // console.log(props)
