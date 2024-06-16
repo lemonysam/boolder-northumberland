@@ -124,7 +124,7 @@ namespace :mapbox do
         )
       )
       s3 = Aws::S3::Client.new
-      s3.put_object(body: open(file_name), bucket: "boolder-northumberland-reports", key: "exported problems.geojson")
+      s3.put_object(body: open(file_name), bucket: "boolder-northumberland-reports", key: "problems.geojson")
     end
 
     puts "exported problems.geojson".green
