@@ -9,9 +9,12 @@ Rails.application.routes.draw do
       resources :problems, except: :index
       resources :boulders
       resources :circuits
+
       resources :imports do
         get 'apply', on: :member
       end
+      resources :exports, only: :new
+
       resources :topos
       resources :problem_imports
       resources :bleau_problems

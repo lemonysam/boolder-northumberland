@@ -4,6 +4,7 @@
   <% items = [] %>
   <% items << { text: "New Area", link: new_admin_area_path } %>
   <% items << { text: "Import problems as CSV", link: new_admin_problem_import_path } %>
+  <% items << { text: "Export data for mapbox", link: new_admin_export_path } %>
   <%= render "shared/dot_menu", items: items %>
 <% end %>
 
