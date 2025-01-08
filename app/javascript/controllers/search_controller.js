@@ -43,8 +43,8 @@ export default class extends Controller {
     let showUnpublished = this.showUnpublishedValue
 
     const searchClient = algoliasearch(
-      'IT6VX0XC8G',
-      '8b958a3c9a7df9272824382f1411c46f'
+      'KHNO0IDDAU',
+      'b949847c4407faa03cc8205f951b8068'
     );
 
     let that = this // FIXME: please help me I don't know what I'm doing
