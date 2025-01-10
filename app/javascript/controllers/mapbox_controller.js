@@ -155,7 +155,7 @@ export default class extends Controller {
       ],
     }
     ,
-    "climbinareas2024" // layer will be inserted just before this layer
+    "Areas" // layer will be inserted just before this layer
     );
 
     this.map.addLayer({
