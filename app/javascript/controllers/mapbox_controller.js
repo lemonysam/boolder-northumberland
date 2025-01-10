@@ -27,7 +27,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.tokenValue;
 
     this.map = new mapboxgl.Map({
-      bounds: [[-2.2806787, 55.6268050],[-1.0698927,54.180906]],
+      bounds: [[-2.2806787, 55.9268050],[-1.0698927,54.180906]],
       container: 'map',
       language: this.localeValue, // doesn't seem to work?
       locale: this.localeValue == 'fr' ? this.getFrLocale() : null,
@@ -254,7 +254,7 @@ export default class extends Controller {
       ],
       }
       ,
-      "climbinareas2024" // layer will be inserted just before this layer
+      "Areas" // layer will be inserted just before this layer
       );
   
       this.map.addLayer({
@@ -434,18 +434,18 @@ export default class extends Controller {
     });
 
     // FIXME: make DRY
-    this.map.on('mouseenter', 'climbinareas2024', () => {
+    this.map.on('mouseenter', 'area names', () => {
       if(this.map.getZoom() < 15) {
         this.map.getCanvas().style.cursor = 'pointer';
       }
     });
-    this.map.on('mouseleave', 'climbinareas2024', () => {
+    this.map.on('mouseleave', 'area names', () => {
       if(this.map.getZoom() < 15) {
         this.map.getCanvas().style.cursor = '';
       }
     });
 
-    this.map.on('click', 'climbinareas2024', (e) => {
+    this.map.on('click', 'area names', (e) => {
       if(this.map.getZoom() < 15) {
         let props = e.features[0].properties
         this.flyToBounds([[props.southWestLon, props.southWestLat], [props.northEastLon, props.northEastLat]])
@@ -453,18 +453,18 @@ export default class extends Controller {
     });
 
      // FIXME: make DRY
-    this.map.on('mouseenter', 'climbinareas2024-hulls', () => {
+    this.map.on('mouseenter', 'Areas', () => {
       if(this.map.getZoom() < 15) {
         this.map.getCanvas().style.cursor = 'pointer';
       }
     });
-    this.map.on('mouseleave', 'climbinareas2024-hulls', () => {
+    this.map.on('mouseleave', 'Areas', () => {
       if(this.map.getZoom() < 15) {
         this.map.getCanvas().style.cursor = '';
       }
     });
 
-    this.map.on('click', 'climbinareas2024-hulls', (e) => {
+    this.map.on('click', 'Areas', (e) => {
       if(this.map.getZoom() < 15) {
         let props = e.features[0].properties
         // console.log(props)
