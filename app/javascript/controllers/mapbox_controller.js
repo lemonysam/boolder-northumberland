@@ -32,7 +32,7 @@ export default class extends Controller {
       language: this.localeValue, // doesn't seem to work?
       locale: this.localeValue == 'fr' ? this.getFrLocale() : null,
       hash: true,
-      style: `mapbox://styles/samcartwright/clvw0op0v023201qr40s2az3s${this.draftValue ? "/draft" : ""}`,
+      style: `mapbox://styles/samcartwright/cm5ozm02u00g001s34t422mns${this.draftValue ? "/draft" : ""}`,
       padding: 5,
     });
 
