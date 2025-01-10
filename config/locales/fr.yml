@@ -325,10 +325,6 @@ fr:
       cancel: Annuler
       submit: Chercher
     layout:
-      contribute_banner:
-        text_short: Contribuez à Climbin !
-        text_long: Vous pouvez maintenant contribuer à Climbin !
-        learn_more: Commencer à contribuer
       nav:
         open_menu: Ouvrir le menu principal
         discover: Découvrir
