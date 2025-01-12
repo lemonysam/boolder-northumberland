@@ -18,6 +18,7 @@ class Admin::BaseController < ApplicationController
     {
       "sam"  => Rails.application.credentials.dig(:admin, :sam_password), 
       "ian" => Rails.application.credentials.dig(:admin, :ian_password),
+      "cameron" => Rails.application.credentials.dig(:admin, :cameron_password),
     }
   end
 
