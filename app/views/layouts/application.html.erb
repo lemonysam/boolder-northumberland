@@ -31,7 +31,16 @@
       });
     </script>
   </head>
+  <% if !Rails.env.development? %>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9DTNFR33FB"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-9DTNFR33FB');
+    </script>
+  <% end %>
   <body class="bg-white">
     <div class="bg-gray-100">
       <%= render "layouts/nav" unless @hide_nav %>
@@ -40,4 +49,5 @@
       <%= render "layouts/footer" unless @hide_nav %>
     </body>
   </div>
+
 </html>
