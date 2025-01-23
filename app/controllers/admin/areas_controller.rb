@@ -54,7 +54,7 @@ class Admin::AreasController < Admin::BaseController
       csv << %w"id areaId name grade secondary_grade steepness height sit_start description_en history_note"
 
       area.problems.each do |p|
-        csv << [p.id, area.id, p.grade_name, p.secondary_grade, p.steepness, p.height, p.sit_start, p.description_en, p.history_note]
+        csv << [p.id, area.id, p.name, p.grade_name, p.secondary_grade, p.steepness, p.height, p.sit_start, p.description_en, p.history_note]
       end
     end
 
