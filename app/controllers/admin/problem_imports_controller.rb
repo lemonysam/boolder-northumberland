@@ -5,7 +5,7 @@ class Admin::ProblemImportsController < Admin::BaseController
     files.sort_by{|file| file.original_filename }.each do |file|
       array = CSV.parse(file.read, headers: true)
       array.each do |hash|
-        unless hash["id"].empty?
+        if hash["id"]
           problem = Problem.find(hash["id"].to_i)
           problem.area = Area.find(hash["areaId"].to_i)
           problem.name = hash["name"]
@@ -38,8 +38,8 @@ class Admin::ProblemImportsController < Admin::BaseController
 
     flash[:notice] = "#{files.count} problems updated"
     redirect_to new_admin_problem_import_path
-  rescue => err
-    flash[:error] = err.message
-    redirect_to new_admin_problem_import_path
+  # rescue => err
+  #   flash[:error] = err.message
+  #   redirect_to new_admin_problem_import_path
   end
 end
