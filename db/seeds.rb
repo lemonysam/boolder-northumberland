@@ -47,6 +47,7 @@ Grade.find_or_create_by(name: 'D', grade_type: Grade.grade_types[:trad], band: G
 Grade.find_or_create_by(name: 'HD', grade_type: Grade.grade_types[:trad], band: Grade.bands[:easy])
 Grade.find_or_create_by(name: 'VD', grade_type: Grade.grade_types[:trad], band: Grade.bands[:easy])
 Grade.find_or_create_by(name: 'HVD', grade_type: Grade.grade_types[:trad], band: Grade.bands[:easy])
+Grade.find_or_create_by(name: 'MS', grade_type: Grade.grade_types[:trad], band: Grade.bands[:easy])
 Grade.find_or_create_by(name: 'S', grade_type: Grade.grade_types[:trad], band: Grade.bands[:moderate])
 Grade.find_or_create_by(name: 'HS', grade_type: Grade.grade_types[:trad], band: Grade.bands[:moderate])
 Grade.find_or_create_by(name: 'MVS', grade_type: Grade.grade_types[:trad], band: Grade.bands[:moderate])
