@@ -44,6 +44,15 @@ Rails.application.routes.draw do
         get 'rules', to: "articles#rules", as: :rules
       end
 
+      scope "top-areas" do
+        get '/', to: redirect("/%{locale}/cragsthumberland")
+        get 'level', to: redirect("/%{locale}/cragsthumberland"), as: :legacy_top_areas_level # keep until end of 2023
+        get 'groups', to: redirect("/%{locale}/cragsthumberland"), as: :legacy_top_areas_groups # keep until end of 2023
+        get 'beginner', to: redirect("/%{locale}/articles/beginners-guide/choose-area"), as: :legacy_top_areas_beginner # keep until end of 2023
+        get 'train', to: "articles#top_areas_train", as: :top_areas_train
+        get 'dry_fast', to: "articles#top_areas_dry_fast", as: :top_areas_dry_fast
+      end
+
       root to: redirect("/%{locale}/articles/beginners-guide"), as: :articles
     end
 
