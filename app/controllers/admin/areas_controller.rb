@@ -1,3 +1,4 @@
+require 'csv'
 class Admin::AreasController < Admin::BaseController
   def index
     sort = params[:sort] == "id" ? :id : :name
@@ -45,6 +46,19 @@ class Admin::AreasController < Admin::BaseController
       flash[:error] = @area.errors.full_messages.join('; ')
       render "edit", status: :unprocessable_entity
     end
+  end
+
+  def export
+    area = Area.find_by(slug: params[:area_slug])
+    csv_data = CSV.generate(headers: true) do |csv|
+      csv << %w"id areaId name grade secondary_grade steepness height sit_start description_en history_note"
+
+      area.problems.each do |p|
+        csv << [p.id, area.id, p.grade_name, p.secondary_grade, p.steepness, p.height, p.sit_start, p.description_en, p.history_note]
+      end
+    end
+
+    send_data csv_data, filename: "#{area.slug}.csv"
   end
 
   private 

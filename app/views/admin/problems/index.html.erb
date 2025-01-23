@@ -5,6 +5,7 @@
   <% items = [] %>
   <% items << { text: "New problem", link: new_admin_problem_path(area_id: @area.id) } %>
   <% items << { text: "Edit area", link: edit_admin_area_path(@area) } %>
+  <% items << { text: "Export area", link: admin_area_export_path(@area) } %>
   <% if params[:circuit_id].to_i > 0 %>
     <% items << { text: "Edit circuit", link: edit_admin_circuit_path(id: params[:circuit_id]) } %>
   <% end %>
